@@ -1,0 +1,170 @@
+@import './styles/_variables';
+@import './styles/_animations';
+
+// RESET
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: $violet-dim $void;
+}
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: $void; }
+::-webkit-scrollbar-thumb { background: $violet-dim; border-radius: 2px;
+  &:hover { background: $violet; }
+}
+
+
+// BASE
+
+body {
+  background: $void;
+  color: $mist;
+  font-family: $font-body;
+  font-size: $text-md;
+  line-height: $leading-normal;
+  overflow-x: hidden;
+  cursor: none;
+
+  // Overlay bruit de fond
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0.4;
+  }
+}
+
+a, button   { color: inherit; text-decoration: none; cursor: none; }
+::selection { background: $violet-dim; color: $white; }
+
+
+// ─── TYPOGRAPHIE ────────────────────────────────────────────
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-title;
+  line-height: $leading-tight;
+  color: $white;
+}
+
+h1 { font-size: $text-hero; font-weight: $weight-black; letter-spacing: $tracking-tight; }
+h2 { font-size: $text-4xl;  font-weight: $weight-bold; }
+h3 { font-size: $text-3xl;  font-weight: $weight-bold; }
+h4 { font-size: $text-2xl; }
+
+p     { line-height: $leading-loose; }
+em    { color: $acid; font-style: italic; }
+small { font-family: $font-mono; font-size: $text-xs; color: $fog; }
+
+// Label mono réutilisable
+.label {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-widest;
+  text-transform: uppercase;
+  color: $fog;
+
+  &--violet { color: $violet-glow; }
+  &--acid   { color: $acid; }
+}
+
+
+// ─── LAYOUT ─────────────────────────────────────────────────
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding-inline: $container-pad;
+
+  &--narrow { max-width: $container-narrow; }
+  &--wide   { max-width: $container-wide; }
+}
+
+.section {
+  padding-block: $space-24;
+  &--sm { padding-block: $space-16; }
+}
+
+
+// ─── CURSEUR ────────────────────────────────────────────────
+
+.cursor {
+  position: fixed;
+  inset: 0;
+  width: 12px;
+  height: 12px;
+  background: $acid;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: $glow-acid;
+  transition: transform $duration-fast $ease-default;
+
+  &.hovering { transform: translate(-50%, -50%) scale(0); }
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $violet;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width $duration-base $ease-default,
+              height $duration-base $ease-default,
+              border-color $duration-base $ease-default;
+
+  &.hovering { width: 60px; height: 60px; border-color: $acid; box-shadow: $glow-acid; }
+}
+
+
+// ─── BOUTONS ────────────────────────────────────────────────
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  font-family: $font-mono;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wider;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all $transition;
+  cursor: none;
+
+  &--primary {
+    border-color: $violet;
+    color: $violet-glow;
+    &:hover { background: $violet; color: $white; box-shadow: $glow-violet; transform: translateY(-2px); }
+  }
+
+  &--ghost {
+    border-color: $border;
+    color: $fog;
+    &:hover { border-color: $violet-dim; color: $mist; background: rgba($violet, 0.06); }
+  }
+}
+
+
+// ─── CARD ───────────────────────────────────────────────────
+
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 2px;
+  padding: $space-8;
+  transition: border-color $transition, box-shadow $transition;
+
+  &:hover          { border-color: $violet-dim; box-shadow: $shadow-card; }
+  &--glow:hover    { box-shadow: $glow-violet, $shadow-card; }
+}

@@ -1,0 +1,70 @@
+@import './styles/variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Share+Tech+Mono&family=Crimson+Pro:wght@300;400&display=swap');
+
+// --- RESET & BASE ---
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: $violet-dim $void;
+}
+
+body {
+  background-color: $void;
+  color: $mist;
+  font-family: $font-body;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none; // Cache la souris pour le curseur custom
+
+  // Overlay grain/bruit TV
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+  }
+}
+
+// --- CURSEUR CUSTOM ---
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: $acid;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  box-shadow: $glow-acid;
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $violet;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+// --- LAYOUT ---
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
