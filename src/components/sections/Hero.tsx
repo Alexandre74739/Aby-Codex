@@ -1,20 +1,20 @@
 import "./Hero.scss";
 
-export default function Home() {
+export default function Hero() {
   return (
-    <section className="home">
-      <div className="home__hero container">
-        <p className="home__eyebrow">FRAGMENT PSYCHOLOGIQUE</p>
-        <h1 className="home__title">
+    <section className="hero">
+      <div className="hero-hero container">
+        <p className="hero-eyebrow">FRAGMENT PSYCHOLOGIQUE</p>
+        <h1 className="hero-title">
           L'Horreur <br />
           <span>comme miroir</span>
         </h1>
-        <p className="home__desc">
+        <p className="hero-desc">
           Bienvenue dans Aby Codex, un espace où la peur cesse d'être un frisson
           pour devenir une clef de lecture du monde intérieur. Explorez les
           abysses de l'inconscient à travers les récits qui hantent nos écrans.
         </p>
-        <a href="/analyses" className="home__btn">
+        <a href="/analyses" className="hero-btn">
           <span>Commencer l'exploration</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path
