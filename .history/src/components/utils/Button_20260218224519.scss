@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-8;
+  border: 1px solid $violet;
+  background: transparent;
+  color: $violet-glow;
+  font-family: $font-mono;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wider;
+  transition: all $transition;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none; // Important pour les Link
+  cursor: pointer;
+
+  .btn-icon {
+    transition: transform $transition-fast;
+  }
+
+  // Variante par défaut (Violet)
+  &.primary {
+    &:hover {
+      background: $violet;
+      color: $white;
+      box-shadow: $glow-violet;
+      transform: translateY(-2px);
+      
+      .btn-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // Variante optionnelle (Acid) si tu veux changer de style parfois
+  &.acid {
+    border-color: $acid;
+    color: $acid;
+    &:hover {
+      background: $acid;
+      color: $void;
+      box-shadow: $glow-acid;
+    }
+  }
+}

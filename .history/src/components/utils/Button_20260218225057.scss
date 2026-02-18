@@ -1,0 +1,68 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4 $space-8;
+  font-family: $font-mono;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all $duration-base $ease-default;
+  position: relative;
+  overflow: hidden;
+
+  .btn-icon {
+    transition: transform $duration-fast;
+  }
+
+  &.btn-primary {
+    border: 1px solid $violet;
+    background: transparent;
+    color: $violet-glow;
+    border-radius: 2px;
+
+    &:hover {
+      background: rgba($violet, 0.1);
+      box-shadow: $glow-violet;
+      color: $white;
+      transform: translateY(-2px);
+      
+      .btn-icon { transform: translateX(5px); }
+    }
+  }
+
+  &.btn-secondary {
+    background: $acid;
+    color: $void;
+    border-radius: 0;
+    font-weight: $weight-bold;
+    border: none;
+
+    &:hover {
+      background: $white;
+      box-shadow: $glow-acid;
+      transform: scale(1.05);
+      
+      .btn-icon { 
+        transform: translateX(5px) rotate(-15deg); 
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba($white, 0.4), transparent);
+      transition: 0.5s;
+    }
+
+    &:hover::after {
+      left: 100%;
+    }
+  }
+}

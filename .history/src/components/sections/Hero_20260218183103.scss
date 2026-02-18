@@ -109,6 +109,37 @@
     margin-inline: auto;
   }
 
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    border: 1px solid $violet;
+    background: transparent;
+    color: $violet-glow;
+    font-family: $font-mono;
+    font-size: $text-sm;
+    letter-spacing: $tracking-wider;
+    transition: all $transition;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $violet;
+      color: $white;
+      box-shadow: $glow-violet;
+      transform: translateY(-2px);
+    }
+
+    svg {
+      transition: transform $transition-fast;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+
   @include md {
     &-title {
       font-size: $text-3xl;

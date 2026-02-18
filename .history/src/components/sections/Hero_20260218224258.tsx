@@ -1,6 +1,5 @@
 import "./Hero.scss";
 import bgHorreur from "../../assets/bg-horreur.mp4";
-import Button from '../utils/Button';
 
 export default function Hero() {
   return (
@@ -20,7 +19,10 @@ export default function Hero() {
           pour devenir une clef de lecture du monde intérieur. Explorez les
           abysses de l'inconscient à travers les récits qui hantent nos écrans.
         </p>
-        <Button to="/decryptage" label="Commencer l'exploration" variant="primary"/>
+        <a href="/analyses" className="hero-btn">
+          <span>Commencer l'exploration</span>
+          
+        </a>
       </div>
     </section>
   );

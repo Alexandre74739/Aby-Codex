@@ -20,7 +20,15 @@ export default function Hero() {
           pour devenir une clef de lecture du monde intérieur. Explorez les
           abysses de l'inconscient à travers les récits qui hantent nos écrans.
         </p>
-        <Button to="/decryptage" label="Commencer l'exploration" variant="primary"/>
+        <Button 
+  to="/analyses" 
+  label="Lancer l'exploration" 
+  variant="primary" 
+/><Button 
+  to="/diagnostic" 
+  label="Démarrer le protocole" 
+  variant="secondary" 
+/>
       </div>
     </section>
   );
