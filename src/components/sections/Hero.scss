@@ -57,9 +57,8 @@
     }
   
     &-hero {
-      // ... reste de ton code identique
       position: relative;
-      z-index: 3; // Le texte est au dessus de tout
+      z-index: 3;
       padding: $space-24 $container-pad;
       max-width: $container-narrow;
       margin: 0 auto;
