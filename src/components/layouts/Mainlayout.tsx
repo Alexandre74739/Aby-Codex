@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import './MainLayout.css'
+import './Mainlayout.css'
 
 export default function MainLayout() {
   const cursorRef = useRef<HTMLDivElement>(null)
