@@ -1,8 +1,13 @@
 import "./Hero.scss";
+import bgHorreur from "../../assets/bg-horreur.mp4";
 
 export default function Hero() {
   return (
     <section className="hero">
+      <video autoPlay muted loop playsInline className="hero-video">
+        <source src={bgHorreur} type="video/mp4" />
+      </video>
+      <div className="hero-overlay"></div>
       <div className="hero-hero container">
         <p className="hero-eyebrow">FRAGMENT PSYCHOLOGIQUE</p>
         <h1 className="hero-title">
