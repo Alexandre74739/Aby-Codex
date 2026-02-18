@@ -1,7 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layouts/Mainlayout';
-import Home from './pages/Home';
+import Nexus from './pages/Nexus';
 import Analyses from './pages/Analyses';
 import Philosophie from './pages/Philosophie';
 import Bibliotheque from './pages/Bibliotheque';
@@ -12,7 +12,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Nexus />} />
           <Route path="analyses" element={<Analyses />} />
           <Route path="philosophie" element={<Philosophie />} />
           <Route path="bibliotheque" element={<Bibliotheque />} />
