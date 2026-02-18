@@ -43,16 +43,22 @@
     z-index: 2;
   }
 
-  &-eyebrow {
-    font-family: $font-mono;
-    font-size: $text-xs;
-    letter-spacing: $tracking-widest;
-    text-transform: uppercase;
-    color: $acid;
-    margin-bottom: $space-6;
-    opacity: 0.8;
-    display: block;
-  }
+    &-eyebrow {
+      font-family: $font-mono;
+      font-size: $text-xs;
+      letter-spacing: $tracking-widest;
+      text-transform: uppercase;
+      color: $acid;
+      margin-bottom: $space-6;
+      display: inline-block;
+      padding: $space-1 $space-4;
+      border: 1px solid rgba($acid, 0.6);
+      border-radius: 25px;
+      box-shadow: $glow-acid;
+      backdrop-filter: blur(4px);
+      animation: flicker-hard 0.8s ease-in-out infinite alternate;
+      opacity: 0.9;
+    }
 
   &-title {
     font-family: $font-title;
