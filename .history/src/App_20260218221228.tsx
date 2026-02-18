@@ -68,7 +68,7 @@ export default function App() {
             <Route path="/diagnostic" element={<Diagnostic />} />
           </Routes>
         </main>
-        <Footer />
+        <
       </BrowserRouter>
     </>
   );

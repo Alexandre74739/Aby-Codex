@@ -1,0 +1,130 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.main-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  padding: $space-10 0; // Header plus grand
+  transition: all $duration-base $ease-default;
+  pointer-events: none; // RÉSOUT LE BUG DE SOURIS : laisse passer les clics
+
+  &.scrolled {
+    padding: $space-4 0;
+    background: rgba($void, 0.9);
+    backdrop-filter: blur(15px);
+    .header-border-bottom { opacity: 0.5; }
+  }
+
+  .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    display: flex; align-items: center; justify-content: space-between;
+    pointer-events: auto; // Réactive la souris seulement sur les éléments utiles
+  }
+
+  .header-logo {
+    text-decoration: none;
+    .logo-title {
+      font-family: $font-title;
+      font-size: 2rem; // Plus grand
+      color: $white;
+      letter-spacing: 0.15em;
+      span { color: transparent; -webkit-text-stroke: 1px $violet; }
+    }
+    .logo-tagline {
+      font-family: $font-mono; font-size: 0.65rem; color: $acid;
+      letter-spacing: 0.4em; display: block;
+    }
+  }
+
+  .header-nav {
+    display: flex; gap: $space-4;
+    background: rgba($surface, 0.6);
+    padding: $space-2;
+    border-radius: 50px;
+    border: 1px solid rgba($border, 0.3);
+
+    @media (max-width: $bp-lg) { display: none; }
+
+    .nav-item {
+      padding: $space-3 $space-8;
+      display: flex; flex-direction: column; align-items: center;
+      border-radius: 40px; transition: all $transition;
+      text-decoration: none;
+
+      .label { font-family: $font-mono; font-size: 0.85rem; color: $fog; }
+      .sub { font-family: $font-body; font-size: 0.65rem; color: $phantom; }
+
+      &:hover, &.active {
+        background: rgba($violet, 0.15);
+        .label { color: $white; }
+      }
+      &.active .label { color: $acid; text-shadow: $glow-text-acid; }
+    }
+  }
+
+  .header-actions {
+    display: flex; align-items: center; gap: $space-4;
+  }
+
+  .cta-interrogative {
+    display: flex; align-items: center; gap: $space-4;
+    padding: $space-2 $space-2 $space-2 $space-6;
+    border: 1px solid $violet; border-radius: 50px;
+    color: $white; font-family: $font-mono; text-decoration: none;
+    transition: all $transition;
+
+    @media (max-width: $bp-md) { display: none; }
+
+    .cta-icon {
+      width: 38px; height: 38px; background: $violet;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: $glow-violet; font-weight: bold;
+    }
+    &:hover { border-color: $acid; box-shadow: $glow-acid; }
+  }
+
+  // BURGER MENU
+  .header-burger {
+    display: none; width: 40px; height: 40px;
+    background: rgba($surface, 0.5); border: 1px solid $border;
+    border-radius: 8px; flex-direction: column; justify-content: center;
+    align-items: center; gap: 6px; cursor: pointer;
+    @media (max-width: $bp-lg) { display: flex; pointer-events: auto; }
+
+    span { width: 24px; height: 2px; background: $white; transition: 0.3s; }
+  }
+
+  // MOBILE DRAWER
+  .mobile-drawer {
+    position: fixed; top: 0; right: 0; width: 80%; height: 100vh;
+    background: $void; z-index: -1; padding: 120px 40px;
+    display: flex; flex-direction: column; gap: $space-6;
+    transform: translateX(100%); transition: transform 0.5s $ease-default;
+    border-left: 1px solid $border;
+    pointer-events: auto;
+
+    &.open { transform: translateX(0); }
+
+    .drawer-item {
+      font-family: $font-title; font-size: 2rem; color: $white;
+      text-decoration: none; border-bottom: 1px solid $border; padding-bottom: $space-4;
+      &.diagnostic-link { color: $acid; border-color: $acid; }
+    }
+  }
+
+  .header-border-bottom {
+    position: absolute; bottom: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, $violet, transparent);
+    opacity: 0.2;
+  }
+}
+
+// État ouvert pour le burger
+.nav-open .header-burger {
+  span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  span:nth-child(2) { opacity: 0; }
+  span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}

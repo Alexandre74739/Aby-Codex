@@ -1,0 +1,123 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.main-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  padding: $space-8 0;
+  transition: all $duration-base $ease-default;
+
+  &.scrolled {
+    padding: $space-4 0;
+    background: rgba($void, 0.85);
+    backdrop-filter: blur(12px);
+    .header-border-bottom { opacity: 1; }
+  }
+
+  .header-container {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  // LOGO - Calligraphie
+  .header-logo {
+    display: flex; flex-direction: column;
+    text-decoration: none;
+
+    .logo-title {
+      font-family: $font-title; // Utilise Cinzel ou ta police calligraphique
+      font-size: $text-xl;
+      color: $white;
+      letter-spacing: $tracking-widest;
+      line-height: 1;
+
+      span {
+        color: transparent;
+        -webkit-text-stroke: 1px $violet;
+        filter: drop-shadow(0 0 5px rgba($violet, 0.3));
+      }
+    }
+
+    .logo-tagline {
+      font-family: $font-mono;
+      font-size: 0.55rem;
+      color: $acid;
+      letter-spacing: 0.3em;
+      margin-top: $space-1;
+      opacity: 0.7;
+    }
+  }
+
+  // NAVIGATION CENTRALE
+  .header-nav {
+    display: flex; gap: $space-2;
+    background: rgba($surface, 0.4);
+    padding: $space-1;
+    border-radius: 40px;
+    border: 1px solid rgba($border, 0.3);
+
+    .nav-item {
+      padding: $space-2 $space-6;
+      display: flex; flex-direction: column; align-items: center;
+      border-radius: 30px;
+      transition: all $transition;
+      text-decoration: none;
+
+      .label { font-family: $font-mono; font-size: $text-xs; color: $fog; }
+      .sub { font-family: $font-body; font-size: 0.6rem; color: $phantom; font-style: italic; }
+
+      &:hover, &.active {
+        background: rgba($violet, 0.1);
+        .label { color: $white; }
+      }
+
+      &.active {
+        border: 1px solid rgba($acid, 0.2);
+        .label { color: $acid; text-shadow: $glow-text-acid; }
+        .sub { color: $acid; opacity: 0.6; }
+      }
+    }
+  }
+
+  // CTA DIAGNOSTIC
+  .cta-interrogative {
+    display: flex; align-items: center; gap: $space-4;
+    padding: $space-1 $space-1 $space-1 $space-5;
+    background: transparent;
+    border: 1px solid $violet;
+    border-radius: 40px;
+    color: $white;
+    font-family: $font-mono; font-size: $text-xs;
+    text-decoration: none;
+    transition: all $transition;
+
+    .cta-icon {
+      width: 32px; height: 32px;
+      background: $violet;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: $glow-violet;
+      font-weight: bold;
+    }
+
+    &:hover {
+      border-color: $acid;
+      box-shadow: $glow-acid;
+      transform: scale(1.02);
+      .cta-icon { background: $acid; color: $void; box-shadow: $glow-acid; }
+    }
+  }
+
+  .header-border-bottom {
+    position: absolute; bottom: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, $border, transparent);
+    opacity: 0; transition: opacity $duration-slow;
+  }
+}
+
+// Tablette & Mobile
+@media (max-width: $bp-lg) {
+  .header-nav, .cta-interrogative { display: none; }
+}

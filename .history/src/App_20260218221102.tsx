@@ -2,7 +2,6 @@ import './App.scss';
 import { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/layouts/Header';
-import Footer from './components/layouts/Footer';
 import Nexus from './pages/Nexus';
 import Decryptage from './pages/Decryptage';
 import Codex from './pages/Codex';
@@ -68,7 +67,6 @@ export default function App() {
             <Route path="/diagnostic" element={<Diagnostic />} />
           </Routes>
         </main>
-        <Footer />
       </BrowserRouter>
     </>
   );

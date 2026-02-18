@@ -1,0 +1,162 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.main-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  padding: $space-10 0;
+  transition: all $duration-base $ease-default;
+  pointer-events: none; 
+
+  &.scrolled {
+    padding: $space-4 0;
+    background: rgba($void, 0.95);
+    backdrop-filter: blur(15px);
+    .header-border-bottom { opacity: 0.5; }
+  }
+
+  .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    display: flex; align-items: center; justify-content: space-between;
+    pointer-events: auto;
+  }
+
+  // --- LOGO RESPONSIVE ---
+  .header-logo {
+    text-decoration: none;
+    z-index: 1001; // Reste au dessus du drawer mobile
+
+    .logo-title {
+      font-family: $font-title;
+      font-size: 2rem;
+      color: $white;
+      letter-spacing: 0.15em;
+      transition: font-size 0.3s ease;
+
+      @media (max-width: $bp-md) { font-size: 1.5rem; } // Plus petit sur mobile
+      span { color: transparent; -webkit-text-stroke: 1px $violet; }
+    }
+    .logo-tagline {
+      font-family: $font-mono; font-size: 0.65rem; color: $acid;
+      letter-spacing: 0.4em; display: block;
+      @media (max-width: $bp-md) { font-size: 0.5rem; letter-spacing: 0.2em; }
+    }
+  }
+
+  // --- NAVIGATION DESKTOP & ADAPTATION ---
+  .header-nav {
+    display: flex; gap: $space-2;
+    background: rgba($surface, 0.6);
+    padding: $space-2;
+    border-radius: 50px;
+    border: 1px solid rgba($border, 0.3);
+    transition: all 0.3s ease;
+
+    // Cache la nav centrale plus tôt pour éviter la collision avec le logo
+    @media (max-width: 1100px) { display: none; } 
+
+    .nav-item {
+      padding: $space-3 $space-8;
+      display: flex; flex-direction: column; align-items: center;
+      border-radius: 40px; transition: all $transition;
+      text-decoration: none;
+
+      .label { font-family: $font-mono; font-size: 0.85rem; color: $fog; }
+      .sub { font-family: $font-body; font-size: 0.65rem; color: $phantom; }
+
+      &:hover, &.active {
+        background: rgba($violet, 0.15);
+        .label { color: $white; }
+      }
+      &.active .label { color: $acid; text-shadow: $glow-text-acid; }
+    }
+  }
+
+  .header-actions {
+    display: flex; align-items: center; gap: $space-4;
+  }
+
+  // --- CTA DIAGNOSTIC RESPONSIVE ---
+  .cta-interrogative {
+    display: flex; align-items: center; gap: $space-4;
+    padding: $space-2 $space-2 $space-2 $space-6;
+    border: 1px solid $violet; border-radius: 50px;
+    color: $white; font-family: $font-mono; text-decoration: none;
+    transition: all $transition;
+
+    // Sur petit laptop, on réduit le texte
+    @media (max-width: 1250px) { .cta-text { display: none; } padding: $space-1; border: none; }
+    @media (max-width: $bp-lg) { display: none; } // Cache complètement avant le mobile
+
+    .cta-icon {
+      width: 38px; height: 38px; background: $violet;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: $glow-violet; font-weight: bold;
+    }
+    &:hover { border-color: $acid; box-shadow: $glow-acid; }
+  }
+
+  // --- BURGER MENU ---
+  .header-burger {
+    display: none; width: 44px; height: 44px;
+    background: rgba($surface, 0.8); border: 1px solid $border;
+    border-radius: 12px; flex-direction: column; justify-content: center;
+    align-items: center; gap: 6px; cursor: pointer;
+    pointer-events: auto;
+    z-index: 1001;
+
+    @media (max-width: 1100px) { display: flex; } // Apparaît dès que la nav disparaît
+
+    span { width: 24px; height: 2px; background: $white; transition: 0.3s; }
+  }
+
+  // --- MOBILE DRAWER (MENU GLISSANT) ---
+  .mobile-drawer {
+    position: fixed; top: 0; right: 0; 
+    width: 100%; // Pleine largeur sur mobile
+    max-width: 400px; // Mais limité sur tablette
+    height: 100vh;
+    background: darken($void, 2%); 
+    z-index: 1000; 
+    padding: 140px 40px 40px;
+    display: flex; flex-direction: column; gap: $space-8;
+    transform: translateX(100%); transition: transform 0.5s $ease-default;
+    border-left: 1px solid $border;
+    pointer-events: auto;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+
+    &.open { transform: translateX(0); }
+
+    .drawer-item {
+      font-family: $font-title; font-size: 1.8rem; color: $white;
+      text-decoration: none; border-bottom: 1px solid rgba($border, 0.3); 
+      padding-bottom: $space-4;
+      display: flex; justify-content: space-between; align-items: center;
+
+      &::after { content: '→'; font-size: 1.2rem; color: $violet; opacity: 0.5; }
+
+      &.diagnostic-link { 
+        color: $acid; border-color: $acid; margin-top: auto;
+        font-family: $font-mono; font-size: 1.2rem;
+        &::after { content: '?'; color: $acid; }
+      }
+    }
+  }
+
+  .header-border-bottom {
+    position: absolute; bottom: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, $violet, transparent);
+    opacity: 0.2;
+  }
+}
+
+// État d'ouverture (Animations Burger)
+.nav-open .header-burger {
+  border-color: $acid;
+  span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: $acid; }
+  span:nth-child(2) { opacity: 0; }
+  span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: $acid; }
+}
