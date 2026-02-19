@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+
+.about-section {
+  padding: $space-24 0;
+  background-color: $void;
+  position: relative;
+  overflow: hidden;
+
+  // Petit effet de halo en arrière-plan
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 50%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba($violet, 0.03) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}
+
+.about-container {
+  max-width: $bp-3xl;
+  margin: 0 auto;
+  padding: 0 $container-pad;
+}
+
+.about-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto $space-20;
+
+  .about-eyebrow {
+    font-family: $font-mono;
+    font-size: $text-xs;
+    color: $acid;
+    letter-spacing: 0.5em;
+    display: block;
+    margin-bottom: $space-4;
+  }
+
+  .about-title {
+    font-family: $font-title;
+    font-size: clamp($text-xl, 5vw, $text-3xl); // Taille fluide
+    color: $white;
+    margin-bottom: $space-8;
+    line-height: 1.1;
+
+    span {
+      color: transparent;
+      -webkit-text-stroke: 1px $violet;
+    }
+  }
+
+  .about-content {
+    p {
+      font-family: $font-body;
+      font-size: $text-lg;
+      color: $fog;
+      line-height: 1.8;
+      margin-bottom: $space-6;
+
+      strong {
+        color: $white;
+        border-bottom: 1px solid $violet;
+      }
+    }
+  }
+}
+
+.about-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-8;
+  padding-top: $space-10;
+
+  // Animation d'entrée des cartes
+  & > * {
+    animation: fade-in-up 0.8s $ease-default both;
+    
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) { animation-delay: #{$i * 0.2}s; }
+    }
+  }
+}

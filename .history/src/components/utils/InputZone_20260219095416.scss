@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+
+.lab-zone {
+  padding: $space-16 $container-pad;
+  background: rgba($surface, 0.2);
+  border-top: 1px solid rgba($border, 0.3);
+  border-bottom: 1px solid rgba($border, 0.3);
+}
+
+.lab-container {
+  max-width: $bp-3xl;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-12;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.lab-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .part-label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    color: $violet;
+    margin-bottom: $space-4;
+    letter-spacing: 2px;
+  }
+
+  p {
+    font-family: $font-body;
+    color: $fog;
+    font-size: $text-sm;
+    line-height: 1.6;
+  }
+
+  &.central {
+    align-items: center;
+    border-left: 1px solid rgba($border, 0.1);
+    border-right: 1px solid rgba($border, 0.1);
+
+    @media (max-width: $bp-lg) {
+      border: none;
+      padding: $space-8 0;
+    }
+  }
+}
+
+.counter-display {
+  font-family: $font-title;
+  font-size: 4rem;
+  color: $white;
+  margin-bottom: $space-4;
+  text-shadow: 0 0 20px rgba($white, 0.2);
+}
+
+.lab-btn {
+  background: transparent;
+  border: 1px solid $acid;
+  color: $acid;
+  padding: $space-2 $space-6;
+  font-family: $font-mono;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $acid;
+    color: $void;
+    box-shadow: $glow-acid;A
+  }
+}
+
+.status-text {
+  font-family: $font-mono;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: $space-4;
+
+  &.danger {
+    color: #ff4444;
+    animation: flicker-hard 0.2s infinite;
+  }
+}
+
+.status-bar {
+  height: 4px;
+  background: rgba($white, 0.1);
+  width: 100%;
+  overflow: hidden;
+
+  .progress {
+    height: 100%;
+    background: $acid;
+    transition: width 0.3s ease-out;
+    box-shadow: $glow-acid;
+  }
+}

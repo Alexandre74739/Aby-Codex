@@ -1,0 +1,69 @@
+@import '../../styles/variables';
+
+.input-zone {
+  max-width: 600px;
+  margin: $space-10 auto;
+  background: rgba($surface, 0.2);
+  border: 1px solid rgba($violet, 0.2);
+  padding: $space-4;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, $violet, transparent);
+  }
+
+  .input-header {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+    
+    .status-dot {
+      width: 8px; height: 8px;
+      background: $acid;
+      border-radius: 50%;
+      box-shadow: 0 0 5px $acid;
+      animation: flicker 2s infinite;
+    }
+
+    .terminal-label {
+      font-family: $font-mono;
+      font-size: 0.65rem;
+      color: $phantom;
+      letter-spacing: 2px;
+    }
+  }
+
+  .terminal-area {
+    width: 100%;
+    min-height: 120px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $white;
+    font-family: $font-mono;
+    font-size: $text-sm;
+    line-height: 1.6;
+    resize: vertical;
+    
+    &::placeholder {
+      color: rgba($fog, 0.3);
+    }
+  }
+
+  .input-footer {
+    margin-top: $space-4;
+    padding-top: $space-2;
+    border-top: 1px solid rgba($border, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-mono;
+    font-size: 0.6rem;
+
+    .character-count { color: $phantom; }
+    .sync-status { color: $acid; animation: fade-in 0.5s ease; }
+  }
+}

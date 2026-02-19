@@ -5,7 +5,7 @@ function Nexus() {
   return (
     <div className="nexus">
       <Hero />
-      <About />
+      <InputZone />
     </div>
   )
 }

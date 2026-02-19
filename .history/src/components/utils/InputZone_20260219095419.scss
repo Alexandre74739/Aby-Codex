@@ -1,0 +1,98 @@
+@import '../../styles/variables';
+
+.input-zone {
+  background: darken($void, 2%);
+  border: 1px solid rgba($violet, 0.2);
+  margin: $space-10 $container-pad;
+  padding: $space-12;
+  border-radius: 8px;
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 250px;
+  gap: $space-12;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zone-col {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  // Colonne Meta
+  &.meta {
+    border-right: 1px solid rgba($border, 0.1);
+    padding-right: $space-6;
+    
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      .label { font-family: $font-mono; font-size: 0.6rem; color: $fog; }
+      .value { font-family: $font-mono; color: $white; &.neon { color: $acid; } }
+      .value.large { font-size: 3rem; color: $violet; }
+    }
+  }
+
+  // Colonne Contenu Principal
+  &.content {
+    .content-title {
+      font-family: $font-title;
+      font-size: $text-2xl;
+      color: $white;
+      border-bottom: 2px solid $violet;
+      padding-bottom: $space-2;
+    }
+    .content-body {
+      min-height: 150px;
+      p { font-family: $font-body; color: $fog; line-height: 1.8; font-size: $text-lg; }
+    }
+    .content-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      
+      button {
+        background: none; border: 1px solid $violet; color: $violet;
+        padding: $space-2 $space-4; font-family: $font-mono; cursor: pointer;
+        &:disabled { opacity: 0.3; cursor: not-allowed; }
+        &:hover:not(:disabled) { background: $violet; color: $white; }
+      }
+    }
+  }
+
+  // Colonne Sidebar (Logs)
+  &.sidebar {
+    background: rgba($surface, 0.4);
+    padding: $space-6;
+    border-radius: 4px;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+
+    .sidebar-title { color: $acid; margin-bottom: $space-4; }
+    .log-list {
+      list-style: none;
+      color: $phantom;
+      li { margin-bottom: $space-2; border-bottom: 1px dotted rgba($white, 0.05); }
+    }
+    .access-warning {
+      margin-top: auto;
+      padding: $space-2;
+      background: rgba($violet, 0.1);
+      color: $violet;
+      text-align: center;
+    }
+  }
+}
+
+.progress-dots {
+  display: flex; gap: $space-2;
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: rgba($white, 0.2);
+    &.active { background: $acid; box-shadow: $glow-acid; }
+  }
+}
