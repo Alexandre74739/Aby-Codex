@@ -1,5 +1,5 @@
 import './About.scss';
-import Card from '../utils/card';
+import Card from '../utils/Card';
 
 export default function About() {
   return (
