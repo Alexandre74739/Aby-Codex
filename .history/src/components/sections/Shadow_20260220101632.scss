@@ -1,0 +1,83 @@
+@import '../../styles/variables';
+
+.shadow-section {
+  padding: $space-20 $container-pad;
+  background: black;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.instruction {
+  font-family: $font-mono;
+  color: $phantom;
+  font-size: $text-xs;
+  margin-bottom: $space-10;
+  letter-spacing: 2px;
+}
+
+.shadow-container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  max-width: 600px;
+}
+
+.quote-trigger {
+  padding: $space-4;
+  border: 1px transparent solid;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  filter: blur(8px);
+  opacity: 0.1;
+
+  &:hover {
+    opacity: 0.3;
+    filter: blur(4px);
+  }
+
+  &.active {
+    opacity: 1;
+    filter: blur(0);
+    color: $white;
+    font-family: $font-body;
+    font-style: italic;
+    border-bottom: 1px solid rgba($violet, 0.3);
+  }
+}
+
+// --- JUMPSCARE ---
+.jumpscare-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: flash-red 0.1s infinite;
+
+  .glitch-face {
+    font-family: $font-title;
+    font-size: 8vw;
+    color: white;
+    text-shadow: 2px 0 red, -2px 0 blue;
+    animation: shake 0.1s infinite;
+  }
+}
+
+@keyframes flash-red {
+  0%, 100% { background: black; }
+  50% { background: #1a0000; }
+}
+
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(5px, 5px); }
+  50% { transform: translate(-5px, -5px); }
+  100% { transform: translate(0,0); }
+}

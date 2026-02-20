@@ -1,17 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
+import ambiance from '../../assets/horror-sound.mp3';
 
 const navLinks = [
-  { path: '/',           label: 'NEXUS'},
-  { path: '/decryptage', label: 'DECRYPTAGE'},
-  { path: '/codex',      label: 'CODEX'},
+  { path: '/', label: 'NEXUS' },
+  { path: '/decryptage', label: 'DECRYPTAGE' },
+  { path: '/codex', label: 'CODEX' },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen,   setMenuOpen]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    audioRef.current = new Audio(ambiance);
+    audioRef.current.loop = true; // Assure que la musique se répète
+    audioRef.current.volume = 0.5;
+    return () => { audioRef.current?.pause(); };
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -20,6 +30,11 @@ export default function Header() {
   }, []);
 
   useEffect(() => { setMenuOpen(false); }, [location]);
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (playing) { audioRef.current.pause(); } else { audioRef.current.play(); }
+    setPlaying(!playing);
+  };
 
   return (
     <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
@@ -47,6 +62,16 @@ export default function Header() {
             <span className="cta-text">JE M'INTERROGE</span>
             <div className="cta-icon">?</div>
           </Link>
+
+          <button
+            className={`music-btn ${playing ? 'playing' : ''}`}
+            onClick={toggleMusic}
+            aria-label={playing ? 'Couper la musique' : 'Lancer la musique'}
+          >
+            <span className="music-btn__bars">
+              <span /><span /><span /><span />
+            </span>
+          </button>
 
           <button
             className={`header-burger ${menuOpen ? 'active' : ''}`}

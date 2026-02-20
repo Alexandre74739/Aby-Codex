@@ -7,7 +7,7 @@ interface CardProps {
     backText: string;
 }
 
-export default function FlipCard({ title, backTitle, backText }: CardProps) {
+export default function Card({ title, backTitle, backText }: CardProps) {
     const [flipped, setFlipped] = useState(false);
 
     return (
