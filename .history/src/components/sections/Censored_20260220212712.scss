@@ -1,0 +1,130 @@
+@import '../../styles/variables';
+
+.censored-section {
+  padding: $space-20 $container-pad;
+  background: radial-gradient(circle, #0a0a0a 0%, #000 100%);
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: $white;
+}
+
+.content-wrapper {
+  max-width: 900px;
+  text-align: center; // Centrage global
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  font-family: $font-title;
+  font-size: clamp($text-2xl, 5vw, $text-4xl);
+  color: $violet;
+  margin-bottom: $space-8;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: $acid;
+    box-shadow: $glow-acid;
+  }
+}
+
+.intro-text {
+  font-family: $font-mono;
+  color: $fog;
+  font-size: $text-sm;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: $space-12;
+  opacity: 0.8;
+}
+
+.main-paragraph {
+  font-family: $font-body;
+  font-size: clamp($text-lg, 3vw, $text-2xl);
+  line-height: 2.2;
+  color: $white;
+  text-align: center;
+
+  .censor-item {
+    display: inline-block;
+    background: #111;
+    color: $acid;
+    padding: 2px $space-2;
+    margin: 4px $space-1;
+    cursor: pointer;
+    font-family: $font-mono;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba($violet, 0.2);
+    border-radius: 2px;
+
+    &:hover {
+      background: rgba($violet, 0.1);
+      border-color: $violet;
+      box-shadow: 0 0 10px rgba($violet, 0.3);
+    }
+
+    &.critical {
+      color: $white;
+      background: #000;
+      border-color: red;
+      &:hover {
+        box-shadow: 0 0 15px red;
+      }
+    }
+  }
+}
+
+// --- JUMPSCARE ---
+.jumpscare-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .flash-screen {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    animation: strobe 0.05s infinite;
+  }
+
+  .scare-text {
+    font-family: $font-title;
+    font-size: 18vw;
+    color: #fff;
+    z-index: 2;
+    animation: violent-shake 0.1s infinite;
+    text-shadow: 8px 0 red, -8px 0 blue;
+    filter: brightness(2);
+  }
+}
+
+@keyframes strobe {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes violent-shake {
+  0% { transform: translate(0,0) scale(1); }
+  20% { transform: translate(-15px, 15px) scale(1.1); }
+  40% { transform: translate(-15px, -15px) scale(1.2); }
+  60% { transform: translate(15px, 15px) scale(1.1); }
+  80% { transform: translate(15px, -15px) scale(1.3); }
+  100% { transform: translate(0,0) scale(1); }
+}

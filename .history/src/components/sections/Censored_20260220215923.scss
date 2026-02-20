@@ -1,0 +1,113 @@
+@import '../../styles/variables';
+
+.censored-section {
+    padding: $space-20 $container-pad;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: $white;
+
+    .content-wrapper {
+        max-width: $bp-lg;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .section-title {
+            font-family: $font-title;
+            font-size: $text-3xl;
+            color: $white;
+            margin-bottom: $space-8;
+
+            span {
+                color: transparent;
+                -webkit-text-stroke: 1px $violet;
+            }
+        }
+
+        .intro-text {
+            font-family: $font-mono;
+            color: $fog;
+            font-size: $text-base;
+            line-height: 1.8;
+            max-width: $bp-lg;
+            margin-bottom: $space-12;
+            opacity: 0.8;
+            border-left: 2px solid $violet;
+            padding-left: $space-4;
+            text-align: left;
+        }
+
+        .main-paragraph {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+            margin-bottom: $space-4;
+            text-align: justify;        
+
+            .censor-item {
+                display: inline-block;
+                background-color: $surface;
+                color: $acid;
+                padding: 2px $space-2;
+                margin: 4px $space-1;
+                cursor: pointer;
+                font-family: $font-mono;
+                transition: $ease-in;
+                border: 1px solid rgba($violet, 0.3);
+                border-radius: 2px;
+
+                &:hover {
+                    background-color: rgba($violet, 0.1);
+                    border-color: $violet;
+                    box-shadow: 0 0 10px rgba($violet, 0.3);
+                }
+
+                &.critical {
+                    color: $white;
+                    background: ;
+                    border-color: $blood;
+                    text-shadow: 0 0 10px $blood;
+
+                    &:hover {
+                        box-shadow: 0 0 15px $blood;
+                    }
+                }
+            }
+        }
+    }
+
+    // --- JUMPSCARE ---
+    .jumpscare-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        .flash-screen {
+            position: absolute;
+            inset: 0;
+            background: white;
+            animation: flash-strobe 0.1s infinite;
+            opacity: 0.1;
+        }
+
+        .scare-text {
+            font-family: $font-title;
+            font-size: 15vw;
+            color: white;
+            z-index: 2;
+            animation: shake-violent 0.05s infinite;
+            text-shadow: 5px 0 red, -5px 0 blue;
+            filter: brightness(1.5);
+        }
+    }
+}

@@ -7,7 +7,6 @@ function Nexus() {
     <div className="nexus">
       <Hero />
       <About />
-      <Censored />
     </div>
   )
 }

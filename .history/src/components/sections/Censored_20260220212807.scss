@@ -1,0 +1,114 @@
+@import '../../styles/variables';
+
+.censor-section {
+  padding: $space-20 $container-pad;
+  background: $void;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.censor-header {
+  margin-bottom: $space-10;
+  .status {
+    font-family: $font-mono;
+    color: $acid;
+    font-size: $text-xs;
+    letter-spacing: 2px;
+    text-shadow: $glow-text-acid;
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  max-width: 800px;
+  width: 100%;
+}
+
+.censor-block {
+  position: relative;
+  padding: $space-4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .actual-text {
+    font-family: $font-body;
+    color: $white;
+    font-size: $text-lg;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s $ease-default;
+    text-align: center;
+  }
+
+  .censor-overlay {
+    position: absolute;
+    inset: 0;
+    background: #111;
+    border: 1px solid rgba($violet, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+
+    .glitch-text {
+      color: $violet;
+      font-family: $font-mono;
+      font-size: $text-xs;
+      opacity: 0.5;
+    }
+  }
+
+  // ÉTAT RÉVÉLÉ
+  &.revealed {
+    .actual-text {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .censor-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transform: scaleX(0);
+    }
+  }
+
+  &:hover:not(.revealed) .censor-overlay {
+    background: #1a1a1a;
+    border-color: $violet;
+  }
+}
+
+// --- JUMPSCARE ---
+.scare-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .scare-content {
+    text-align: center;
+    animation: zoom-in 0.2s forwards ease-in;
+
+    .scare-msg {
+      font-family: $font-title;
+      font-size: 15vw;
+      color: $white;
+      text-shadow: 4px 0 red, -4px 0 $violet;
+      letter-spacing: -5px;
+    }
+  }
+}
+
+@keyframes zoom-in {
+  0% { transform: scale(0.5); filter: blur(20px); }
+  100% { transform: scale(1.2); filter: blur(0); }
+}

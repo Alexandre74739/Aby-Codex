@@ -1,0 +1,122 @@
+@import '../../styles/variables';
+
+.censored-section {
+    padding: $space-20 $container-pad;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: $white;
+
+    .content-wrapper {
+        max-width: $bp-lg;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .section-title {
+            font-family: $font-title;
+            font-size: clamp($text-2xl, 5vw, $text-4xl);
+            color: $violet;
+            margin-bottom: $space-8;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 1px;
+                background: $acid;
+                box-shadow: $glow-acid;
+            }
+        }
+
+        .intro-text {
+            font-family: $font-mono;
+            color: $fog;
+            font-size: $text-sm;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-bottom: $space-12;
+            opacity: 0.8;
+            border-left: 2px solid $violet;
+            padding-left: $space-4;
+            text-align: left; // Garder l'intro alignée à gauche pour le style "rapport"
+        }
+
+        .main-paragraph {
+            font-family: $font-body;
+            font-size: clamp($text-lg, 3vw, $text-2xl);
+            line-height: 2.2;
+            color: $white;
+            text-align: center;
+
+            .censor-item {
+                display: inline-block;
+                background: #111;
+                color: $acid;
+                padding: 2px $space-2;
+                margin: 4px $space-1;
+                cursor: pointer;
+                font-family: $font-mono;
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                border: 1px solid rgba($violet, 0.2);
+                border-radius: 2px;
+
+                &:hover {
+                    background: rgba($violet, 0.1);
+                    border-color: $violet;
+                    box-shadow: 0 0 10px rgba($violet, 0.3);
+                }
+
+                &.critical {
+                    color: $white;
+                    background: #000;
+                    border-color: red;
+                    text-shadow: 0 0 10px red;
+                    
+                    &:hover {
+                        box-shadow: 0 0 15px red;
+                    }
+                }
+            }
+        }
+    }
+
+    // --- JUMPSCARE ---
+    .jumpscare-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        .flash-screen {
+            position: absolute;
+            inset: 0;
+            background: white;
+            animation: flash-strobe 0.1s infinite;
+            opacity: 0.1;
+        }
+
+        .scare-text {
+            font-family: $font-title;
+            font-size: 15vw;
+            color: white;
+            z-index: 2;
+            animation: shake-violent 0.05s infinite;
+            text-shadow: 5px 0 red, -5px 0 blue;
+            filter: brightness(1.5);
+        }
+    }
+}
