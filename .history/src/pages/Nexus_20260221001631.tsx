@@ -1,7 +1,7 @@
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Censored from '../components/sections/Censored';
-import Epilogue from '../components/sections/Epilogue';
+import Ouija from '../components/sections/Epilogue';
 
 function Nexus() {
   return (
@@ -9,7 +9,7 @@ function Nexus() {
       <Hero />
       <About />
       <Censored />
-      <Epilogue />
+      <Ouija />
     </div>
   )
 }

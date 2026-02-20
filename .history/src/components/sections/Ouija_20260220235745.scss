@@ -1,0 +1,108 @@
+@import '../../styles/variables';
+
+.ouija-final {
+    padding: $space-24 0;
+    background-color: $void;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ouija-content {
+    max-width: $bp-lg;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    text-align: center;
+
+    .title {
+        font-family: $font-title;
+        font-size: $text-3xl;
+        color: $white;
+        margin-bottom: $space-10;
+        line-height: 1.1;
+        text-transform: uppercase;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px $violet;
+        }
+    }
+
+    .text-container {
+        margin-bottom: $space-12;
+
+        .highlight {
+            font-family: $font-body;
+            font-size: $text-xl;
+            color: $white;
+            line-height: 1.6;
+            margin-bottom: $space-6;
+        }
+
+        .main-text {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+            margin-bottom: $space-8;
+        }
+
+        .philosophical-note {
+            font-family: $font-mono;
+            font-size: $text-xs;
+            color: $violet;
+            letter-spacing: 2px;
+            display: inline-block;
+            padding-top: $space-6;
+            border-top: 1px solid rgba($violet, 0.2);
+            font-style: italic;
+        }
+    }
+
+    .action-hub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $space-8;
+        padding-top: $space-4;
+
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $space-4;
+
+            animation: fade-in-up 0.8s $ease-default both;
+
+            @for $i from 1 through 2 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.3}s;
+                }
+            }
+
+            .action-hint {
+                font-family: $font-mono;
+                font-size: $text-xs;
+                color: $acid; // Rappel de l'eyebrow de About
+                letter-spacing: $space-1;
+                text-transform: uppercase;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// Optionnel : ajout d'une lueur subtile en arrière-plan
+.ouija-final::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba($violet, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}

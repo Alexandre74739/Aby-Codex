@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.ouija-final {
+    padding: $space-24 0;
+    background-color: $void;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ouija-content {
+    max-width: $bp-lg;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    text-align: center;
+
+    .title {
+        font-family: $font-title;
+        font-size: $text-3xl;
+        color: $white;
+        margin-bottom: $space-10;
+        line-height: 1.1;
+        text-transform: uppercase;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px $violet;
+        }
+    }
+
+    .text-container {
+        margin-bottom: $space-12;
+
+        .highlight {
+            font-family: $font-body;
+            font-size: $text-xl;
+            color: $white;
+            line-height: 1.6;
+            margin-bottom: $space-6;
+        }
+
+        .main-text {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+            margin-bottom: $space-8;
+        }
+
+        .philosophical-note {
+            font-family: $font-mono;
+            font-size: $text-xs;
+            color: $violet;
+            letter-spacing: 2px;
+            display: inline-block;
+            padding-top: $space-6;
+            border-top: 1px solid rgba($violet, 0.2);
+            font-style: italic;
+        }
+    }
+
+    .action-hub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $space-8;
+        padding-top: $space-4;
+
+    }
+}

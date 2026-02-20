@@ -83,8 +83,7 @@ export default function Censored() {
                         Souvenez-vous d'une chose :
                         <span className="censor-item critical" onClick={() => handleReveal(7)}>
                             {revealed.includes(7) ? HIDDEN_WORDS[6].text : "██████████████████████"}
-                        </span>.
-                    </p>
+                        </span>.</p>
                 </div>
             </div>
 

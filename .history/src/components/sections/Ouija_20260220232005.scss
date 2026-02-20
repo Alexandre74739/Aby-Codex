@@ -1,0 +1,104 @@
+@import '../../styles/variables';
+
+.ouija-section {
+    padding: $space-20 $container-pad;
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    position: relative;
+    overflow: hidden;
+
+    .ouija-board {
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        transition: opacity 0.5s ease;
+
+        &.disabled { opacity: 0.2; pointer-events: none; }
+
+        .letters-grid {
+            .letter {
+                display: inline-block;
+                padding: 0 $space-2;
+                font-family: $font-title;
+                font-size: clamp($text-lg, 4vw, $text-3xl);
+                color: rgba($white, 0.2);
+                transition: all 0.3s ease;
+
+                &.active {
+                    color: $acid;
+                    text-shadow: $glow-text-acid;
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+
+// --- MODALE ---
+.ouija-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11000;
+    cursor: auto; // On retrouve la souris ici
+
+    .ouija-modal {
+        background: #0a0a0a;
+        border: 1px solid $violet;
+        padding: $space-12;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: $glow-violet;
+        animation: modal-appear 0.5s ease-out;
+
+        .modal-title {
+            font-family: $font-title;
+            color: $violet;
+            font-size: $text-2xl;
+            margin-bottom: $space-6;
+        }
+
+        .modal-text {
+            font-family: $font-mono;
+            color: $fog;
+            font-size: $text-sm;
+            line-height: 1.6;
+            margin-bottom: $space-10;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: $space-4;
+            justify-content: center;
+
+            // Utilisation du style de tes composants existants
+            .cta-interrogative {
+                padding: $space-3 $space-6;
+                border: 1px solid $violet;
+                color: $white;
+                text-decoration: none;
+                font-family: $font-mono;
+                font-size: $text-xs;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: $violet;
+                    box-shadow: $glow-violet;
+                }
+            }
+        }
+    }
+}
+
+@keyframes modal-appear {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}

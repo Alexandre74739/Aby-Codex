@@ -1,0 +1,212 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.ouija {
+  position: relative;
+  height: 100vh;
+  background: $void;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: none;
+
+  // Brume de fond
+  &__fog {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba($violet, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, rgba($acid, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    animation: breathe 6s ease-in-out infinite;
+  }
+
+  // Board
+  &__board {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 820px;
+    padding: $space-8;
+    text-align: center;
+    border: 1px solid rgba($violet-dim, 0.3);
+    border-radius: 4px;
+    background: rgba($void, 0.6);
+    backdrop-filter: blur(4px);
+    transition: filter $duration-slow $ease-default;
+
+    &--blur { filter: blur(10px) brightness(0.5); }
+  }
+
+  // Progression du mot
+  &__progress {
+    display: flex;
+    justify-content: center;
+    gap: $space-4;
+    margin-bottom: $space-6;
+  }
+
+  &__progress-letter {
+    font-family: $font-mono;
+    font-size: $text-xl;
+    letter-spacing: $tracking-widest;
+    color: rgba($white, 0.15);
+    transition: all $duration-base $ease-default;
+
+    &.revealed {
+      color: $acid;
+      text-shadow: $glow-text-acid;
+      animation: fade-in-up 0.3s $ease-out both;
+    }
+  }
+
+  // Top OUI / NON
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $space-6;
+    margin-bottom: $space-8;
+    font-family: $font-title;
+    font-size: $text-2xl;
+    color: rgba($violet, 0.4);
+  }
+
+  &__top-title {
+    font-family: $font-mono;
+    font-size: $text-xs;
+    letter-spacing: $tracking-widest;
+    color: rgba($fog, 0.3);
+  }
+
+  // Alphabet
+  &__alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-3;
+    margin-bottom: $space-8;
+  }
+
+  &__letter {
+    font-family: $font-title;
+    font-size: clamp($text-lg, 3vw, $text-2xl);
+    color: rgba($white, 0.08);
+    transition: all 0.2s $ease-default;
+
+    &.found {
+      color: rgba($acid, 0.5);
+      text-shadow: $glow-text-acid;
+    }
+
+    &.flash {
+      color: $acid;
+      text-shadow: $glow-text-acid;
+      animation: glitch-snap 0.4s ease both;
+    }
+  }
+
+  &__goodbye {
+    font-family: $font-title;
+    font-size: $text-sm;
+    color: rgba($fog, 0.2);
+    letter-spacing: 12px;
+  }
+
+  // Planchette
+  &__planchette {
+    position: absolute;
+    width: 90px;
+    height: 120px;
+    border: 1px solid rgba($violet, 0.6);
+    border-radius: 50% 50% 12% 12%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    background: rgba($violet, 0.04);
+    box-shadow: 0 0 30px rgba($violet, 0.15), inset 0 0 20px rgba($violet, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    animation: warp-y 4s ease-in-out infinite;
+  }
+
+  &__eye {
+    width: 28px;
+    height: 28px;
+    border: 1px solid $acid;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba($acid, 0.6), 0 0 10px rgba($acid, 0.3);
+    animation: breathe 2s ease-in-out infinite;
+  }
+
+  // Modal
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba($void, 0.85);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fade-in 0.4s $ease-out both;
+  }
+
+  &__modal {
+    background: $abyss;
+    border: 1px solid $violet;
+    padding: $space-12 $space-10;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: $glow-violet, $shadow-deep;
+    position: relative;
+    animation: fade-in-up 0.5s $ease-out both;
+
+    h3 {
+      font-family: $font-title;
+      font-size: $text-2xl;
+      color: $white;
+      margin-bottom: $space-4;
+    }
+
+    p {
+      font-family: $font-mono;
+      font-size: $text-sm;
+      color: $fog;
+      margin-bottom: $space-8;
+      line-height: $leading-loose;
+    }
+  }
+
+  &__modal-label {
+    font-family: $font-mono;
+    font-size: $text-xs;
+    letter-spacing: $tracking-widest;
+    color: $acid;
+    margin-bottom: $space-4;
+    opacity: 0.8;
+  }
+
+  &__close {
+    position: absolute;
+    top: $space-4;
+    right: $space-5;
+    background: none;
+    border: none;
+    color: rgba($violet, 0.5);
+    font-size: 1.6rem;
+    line-height: 1;
+    transition: color $transition;
+    &:hover { color: $violet; }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-4;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,134 @@
+@import '../../styles/variables';
+
+.ouija-final {
+  height: 100vh;
+  background: $void;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: $container-pad;
+
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .terminal-wrapper {
+    width: 100%;
+    max-width: 750px;
+    background: rgba(5, 5, 5, 0.8);
+    border: 1px solid rgba($violet, 0.2);
+    padding: $space-8;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      border-bottom: 1px solid rgba($violet, 0.1);
+      padding-bottom: $space-4;
+      margin-bottom: $space-8;
+
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: red;
+        border-radius: 50%;
+        animation: blink 1s infinite;
+      }
+
+      .session-id {
+        font-family: $font-mono;
+        font-size: $text-xs;
+        color: rgba($fog, 0.4);
+        letter-spacing: 2px;
+      }
+    }
+
+    .main-warning {
+      font-family: $font-title;
+      font-size: clamp($text-2xl, 5vw, $text-4xl);
+      color: $white;
+      margin-bottom: $space-6;
+      text-align: center;
+    }
+
+    .philosophical-bridge {
+      font-family: $font-body;
+      color: $fog;
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: $space-10;
+      font-size: $text-base;
+    }
+
+    .echo-chamber {
+      background: rgba(0, 0, 0, 0.5);
+      padding: $space-6;
+      border-left: 2px solid $violet;
+      display: flex;
+      gap: $space-4;
+      margin-bottom: $space-10;
+      transition: all 0.3s ease;
+
+      &.critical {
+        border-left-color: $acid;
+        background: rgba($acid, 0.05);
+        .echo-message { color: $acid; text-shadow: $glow-text-acid; }
+      }
+
+      .cursor { color: $violet; font-family: $font-mono; animation: blink 0.8s infinite; }
+      .echo-message { font-family: $font-mono; font-size: $text-sm; letter-spacing: 1px; color: $violet; transition: all 0.3s; }
+    }
+
+    .decision-matrix {
+      display: flex;
+      justify-content: center;
+      gap: $space-8;
+      flex-wrap: wrap;
+
+      .button-glitch-wrap {
+        position: relative;
+        .shadow-btn {
+          position: absolute;
+          inset: 0;
+          color: rgba(red, 0.2);
+          font-family: $font-mono;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: -1;
+          opacity: 0;
+          transition: 0.2s;
+        }
+
+        &:hover .shadow-btn {
+          opacity: 1;
+          animation: glitch-snap 0.2s infinite;
+        }
+      }
+    }
+
+    .terminal-footer {
+      margin-top: $space-10;
+      border-top: 1px solid rgba($violet, 0.1);
+      padding-top: $space-4;
+      font-family: $font-mono;
+      font-size: $text-xs;
+      color: rgba($fog, 0.2);
+      text-align: center;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

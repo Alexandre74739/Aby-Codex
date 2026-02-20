@@ -1,7 +1,7 @@
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import Censored from '../components/sections/Censored';
-import Epilogue from '../components/sections/Epilogue';
+import Epilogue from '../components/sections/';
 
 function Nexus() {
   return (

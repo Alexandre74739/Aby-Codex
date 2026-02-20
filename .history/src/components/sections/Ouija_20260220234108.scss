@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+.final-choice {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #080808 0%, #000 100%);
+  padding: 0 $container-pad;
+  text-align: center;
+
+  .inner {
+    max-width: 700px;
+    
+    .label {
+      font-family: $font-mono;
+      color: $acid;
+      font-size: $text-xs;
+      letter-spacing: 5px;
+      display: block;
+      margin-bottom: $space-4;
+      opacity: 0.6;
+    }
+
+    .title {
+      font-family: $font-title;
+      font-size: $text-3xl, 6vw, $text-5xl);
+      color: $white;
+      margin-bottom: $space-8;
+      text-shadow: 0 0 20px rgba($violet, 0.3);
+    }
+
+    .description {
+      font-family: $font-body;
+      color: $fog;
+      font-size: $text-lg;
+      line-height: 1.8;
+      margin-bottom: $space-12;
+    }
+
+    .whisper-box {
+      height: $space-10; // Hauteur fixe pour éviter les sauts de texte
+      margin-bottom: $space-12;
+      
+      .whisper-text {
+        font-family: $font-mono;
+        font-style: italic;
+        color: $violet;
+        font-size: $text-sm;
+        opacity: 0.8;
+        animation: fade-in-out 4s infinite;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: $space-6;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; transform: translateY(5px); filter: blur(5px); }
+  20%, 80% { opacity: 0.6; transform: translateY(0); filter: blur(0); }
+}

@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+
+.about-section {
+    padding: $space-24 0;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: $bp-3xl;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+}
+
+.about-header {
+    text-align: center;
+    max-width: $bp-lg;
+    margin: 0 auto $space-10;
+
+    .about-eyebrow {
+        font-family: $font-mono;
+        font-size: $text-xs;
+        color: $acid;
+        letter-spacing: $space-1;
+        display: block;
+        margin-bottom: $space-4;
+    }
+
+    .about-title {
+        font-family: $font-title;
+        font-size: $text-3xl;
+        color: $white;
+        margin-bottom: $space-8;
+        line-height: 1.1;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px $violet;
+        }
+    }
+
+    .about-content {
+        p {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+            margin-bottom: $space-4;
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+}
+
+.about-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-8;
+    padding-top: $space-10;
+
+    &>* {
+        animation: fade-in-up 0.8s $ease-default both;
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.2}s;
+            }
+        }
+    }
+}
