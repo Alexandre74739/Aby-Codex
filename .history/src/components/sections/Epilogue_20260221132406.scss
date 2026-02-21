@@ -1,0 +1,119 @@
+@import '../../styles/variables';
+
+.epilogue-final {
+    padding: $space-32 0;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+
+    .epilogue-scanner {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent 50%, rgba($violet, 0.03) 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
+.epilogue-container {
+    max-width: $bp-3xl;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    width: 100%;
+    z-index: 2;
+}
+
+.epilogue-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .system-status {
+        font-family: $font-mono;
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: rgba($violet, 0.6);
+        margin-bottom: $space-6;
+        
+        .blink {
+            color: $acid;
+            animation: blink 1s infinite;
+        }
+    }
+
+    .title {
+        font-family: $font-title;
+        font-size: clamp($text-3xl, 5vw, $text-5xl);
+        color: $white;
+        margin-bottom: $space-4;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba($white, 0.5);
+        }
+    }
+
+    .visual-barrier {
+        width: 40px;
+        height: 2px;
+        background: $acid;
+        margin: $space-8 auto;
+        box-shadow: 0 0 10px $acid;
+    }
+
+    .text-container {
+        margin-bottom: $space-16;
+
+        .highlight {
+            font-family: $font-body;
+            font-size: $text-xl;
+            color: $white;
+            margin-bottom: $space-4;
+            font-style: italic;
+        }
+
+        .main-text {
+            font-family: $font-mono;
+            font-size: $text-sm;
+            color: $fog;
+            opacity: 0.5;
+            line-height: 1.6;
+        }
+    }
+
+    .action-hub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $space-12;
+
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: $space-3;
+            animation: fade-in 1.2s $ease-default both;
+
+            .btn-hint {
+                font-family: $font-mono;
+                font-size: 9px;
+                color: rgba($violet, 0.5);
+                letter-spacing: 2px;
+            }
+
+            &:hover .btn-hint {
+                color: $acid;
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

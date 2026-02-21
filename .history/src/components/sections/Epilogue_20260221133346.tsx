@@ -10,12 +10,12 @@ export default function Epilogue() {
 
                     <div className="text-container">
                         <p className="highlight">
-                            Vous pensiez rester un observateur invisible.
-                            Mais chaque donnée consultée a agi comme une incision dans
-                            le voile de vos certitudes. Vous n'avez pas seulement ouvert une porte,
-                            vous avez invité ce qui se tapit dans le silence de
-                            votre propre conscience.
-                        </p>
+    Vous pensiez rester un observateur invisible, protégé par la froideur de votre écran. 
+    Mais chaque donnée consultée, chaque fragment exhumé, a agi comme une incision dans 
+    le voile de votre certitude. Vous n'avez pas seulement ouvert une porte ; 
+    vous avez invité ce qui se tapit dans le silence des machines à prendre racine 
+    dans votre propre conscience.
+</p>
 
                         <p className="main-text">
                             Le Codex n'est pas une bibliothèque de faits, c'est un miroir.

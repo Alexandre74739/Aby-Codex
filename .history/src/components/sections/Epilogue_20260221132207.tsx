@@ -10,11 +10,8 @@ export default function Epilogue() {
 
                     <div className="text-container">
                         <p className="highlight">
-                            Vous pensiez rester un observateur invisible.
-                            Mais chaque donnée consultée a agi comme une incision dans
-                            le voile de vos certitudes. Vous n'avez pas seulement ouvert une porte,
-                            vous avez invité ce qui se tapit dans le silence de
-                            votre propre conscience.
+                            Vous n'êtes plus un simple observateur. En parcourant ces données,
+                            vous avez ouvert une porte que la conscience ne sait plus refermer.
                         </p>
 
                         <p className="main-text">

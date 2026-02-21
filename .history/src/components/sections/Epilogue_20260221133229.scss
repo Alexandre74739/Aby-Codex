@@ -45,7 +45,7 @@
 
         .philosophical-note {
             font-family: $font-mono;
-            font-size: $text-base;
+            font-size: $text-xs;
             color: $violet;
             letter-spacing: 2px;
             display: inline-block;
@@ -61,5 +61,17 @@
         justify-content: center;
         gap: $space-8;
         padding-top: $space-10;
+
+        &>* {
+            animation: fade-in-up 0.8s $ease-default both;
+
+            &:nth-child(1) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+        }
     }
 }

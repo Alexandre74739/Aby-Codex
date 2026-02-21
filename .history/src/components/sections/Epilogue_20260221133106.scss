@@ -13,7 +13,7 @@
     padding: 0 $container-pad;
 }
 
-.epilogue-content {
+.ouija-content {
     text-align: center;
     max-width: $bp-lg;
     margin: 0 auto;
@@ -34,18 +34,26 @@
 
     .text-container {
         margin-bottom: $space-12;
-        font-family: $font-body;
-        font-size: $text-lg;
-        line-height: 1.8;
-        color: $fog;
+
+        .highlight {
+            font-family: $font-body;
+            font-size: $text-xl;
+            color: $white;
+            line-height: 1.6;
+            margin-bottom: $space-6;
+        }
 
         .main-text {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
             margin-bottom: $space-8;
         }
 
         .philosophical-note {
             font-family: $font-mono;
-            font-size: $text-base;
+            font-size: $text-xs;
             color: $violet;
             letter-spacing: 2px;
             display: inline-block;
@@ -61,5 +69,17 @@
         justify-content: center;
         gap: $space-8;
         padding-top: $space-10;
+
+        &>* {
+            animation: fade-in-up 0.8s $ease-default both;
+
+            &:nth-child(1) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.4s;
+            }
+        }
     }
 }

@@ -30,7 +30,7 @@
             transform: translateY(-2px);
 
             .btn-icon {
-                transform: translateX(4px);
+                transform: translateX(40px);
             }
         }
     }
@@ -44,10 +44,6 @@
             color: $void;
             box-shadow: $glow-acid;
             transform: translateY(-2px);
-
-            .btn-icon {
-                transform: translateX(4px);
-            }
         }
     }
 }

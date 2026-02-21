@@ -1,0 +1,166 @@
+@import '../../styles/variables';
+
+.epilogue-final {
+    min-height: 100vh;
+    background-color: $void;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-24 0;
+
+    // Scanline qui traverse l'écran
+    .scanline-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba($violet, 0.05) 50%,
+            transparent 100%
+        );
+        background-size: 100% 4px;
+        z-index: 10;
+        pointer-events: none;
+        animation: scanline 8s linear infinite;
+    }
+
+    .noise-floor {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        mix-blend-mode: overlay;
+        pointer-events: none;
+    }
+}
+
+.epilogue-container {
+    max-width: $bp-3xl;
+    margin: 0 auto;
+    padding: 0 $container-pad;
+    z-index: 5;
+    position: relative;
+}
+
+.epilogue-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    .system-alert {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-3;
+        margin-bottom: $space-10;
+        padding: $space-2 $space-4;
+        border: 1px solid rgba($acid, 0.2);
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: $acid;
+            border-radius: 50%;
+            animation: status-blink 1.5s infinite;
+        }
+
+        .mono-text {
+            font-family: $font-mono;
+            font-size: $text-xs;
+            color: $acid;
+            letter-spacing: 2px;
+        }
+    }
+
+    .title-wrapper {
+        position: relative;
+        margin-bottom: $space-12;
+
+        .title-base, .title-glitch {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            color: $white;
+            text-transform: uppercase;
+            line-height: $leading-tight;
+
+            span {
+                color: transparent;
+                -webkit-text-stroke: 1px $violet;
+            }
+        }
+
+        .title-glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        &:hover .title-glitch {
+            opacity: 1;
+            animation: glitch-heavy 0.3s infinite;
+            z-index: 1;
+        }
+    }
+
+    .text-frame {
+        margin-bottom: $space-16;
+
+        .lead-text {
+            font-family: $font-body;
+            font-size: $text-xl;
+            color: $white;
+            margin-bottom: $space-6;
+            animation: reveal-text 1.5s ease forwards;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: $violet;
+            margin: 0 auto $space-6;
+        }
+
+        .sub-text {
+            font-family: $font-body;
+            font-size: $text-md;
+            color: $fog;
+            font-style: italic;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+    }
+
+    .action-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $space-12;
+
+        .choice-block {
+            display: flex;
+            flex-direction: column;
+            gap: $space-4;
+            transition: transform $duration-base $ease-spring;
+
+            .choice-label {
+                font-family: $font-mono;
+                font-size: 10px;
+                color: $phantom;
+                letter-spacing: 3px;
+                transition: color $duration-base;
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+                .choice-label { color: $violet-glow; }
+                animation: glitch-snap 0.4s ease;
+            }
+        }
+    }
+}

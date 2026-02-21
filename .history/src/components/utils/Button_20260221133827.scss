@@ -43,11 +43,7 @@
             background: $acid;
             color: $void;
             box-shadow: $glow-acid;
-            transform: translateY(-2px);
-
-            .btn-icon {
-                transform: translateX(4px);
-            }
+            transform: translateY(-20px);
         }
     }
 }

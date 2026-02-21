@@ -19,7 +19,9 @@ export default function Epilogue() {
 
                         <p className="main-text">
                             Le Codex n'est pas une bibliothèque de faits, c'est un miroir.
+
                             Chaque mot que vous lisez ici est une partie de votre propre ombre qui
+
                             commence à respirer. La confrontation que vous redoutiez a déjà eu lieu
                             dans le silence de vos clics.
                         </p>

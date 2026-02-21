@@ -1,0 +1,138 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.epilogue-final {
+  padding: $space-24 0;
+  background: $void;
+  position: relative;
+  overflow: hidden;
+}
+
+.epilogue-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba($violet, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.epilogue-container {
+  max-width: $container-narrow;
+  margin: 0 auto;
+  padding: 0 $container-pad;
+}
+
+.epilogue-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-6;
+}
+
+.epilogue-label {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-widest;
+  color: $acid;
+  opacity: 0.7;
+}
+
+.epilogue-title {
+  font-family: $font-title;
+  font-size: $text-4xl;
+  color: $white;
+  line-height: $leading-tight;
+  animation: glitch-heavy 10s infinite 3s;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke: 1px $violet;
+  }
+}
+
+.epilogue-highlight {
+  font-family: $font-body;
+  font-size: $text-xl;
+  color: $mist;
+  line-height: $leading-normal;
+  max-width: 620px;
+}
+
+.epilogue-text {
+  font-family: $font-body;
+  font-size: $text-lg;
+  color: $fog;
+  line-height: $leading-loose;
+  max-width: 560px;
+}
+
+.epilogue-quote {
+  border-top: 1px solid rgba($violet, 0.2);
+  padding-top: $space-6;
+  margin-top: $space-2;
+
+  p {
+    font-family: $font-mono;
+    font-size: $text-sm;
+    color: $violet-glow;
+    letter-spacing: $tracking-wide;
+    font-style: italic;
+    margin-bottom: $space-2;
+  }
+
+  cite {
+    font-family: $font-mono;
+    font-size: $text-xs;
+    color: $fog;
+    letter-spacing: $tracking-wider;
+    font-style: normal;
+    opacity: 0.6;
+  }
+}
+
+.epilogue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-4;
+  padding-top: $space-6;
+
+  > * {
+    animation: fade-in-up 0.7s $ease-out both;
+    &:nth-child(2) { animation-delay: 0.15s; }
+  }
+}
+
+.epilogue-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-8;
+  font-family: $font-mono;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wider;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: all $transition;
+
+  svg { transition: transform $transition; }
+  &:hover svg { transform: translateX(4px); }
+
+  &--primary {
+    border-color: $violet;
+    color: $violet-glow;
+    &:hover { background: $violet; color: $white; box-shadow: $glow-violet; transform: translateY(-2px); }
+  }
+
+  &--acid {
+    border-color: $acid-dim;
+    color: $acid;
+    background: rgba($acid, 0.04);
+    &:hover { background: rgba($acid, 0.1); box-shadow: $glow-acid; transform: translateY(-2px); }
+  }
+}

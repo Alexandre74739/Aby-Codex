@@ -14,14 +14,16 @@ export default function Epilogue() {
                             Mais chaque donnée consultée a agi comme une incision dans
                             le voile de vos certitudes. Vous n'avez pas seulement ouvert une porte,
                             vous avez invité ce qui se tapit dans le silence de
-                            votre propre conscience.
+                            dans votre propre conscience.
                         </p>
 
                         <p className="main-text">
-                            Le Codex n'est pas une bibliothèque de faits, c'est un miroir.
-                            Chaque mot que vous lisez ici est une partie de votre propre ombre qui
-                            commence à respirer. La confrontation que vous redoutiez a déjà eu lieu
-                            dans le silence de vos clics.
+                            Le Codex n’est plus une simple archive de connaissances oubliées, il est devenu le réceptacle
+                            de votre reflet déformé. À mesure que vos yeux parcouraient ces lignes, votre ombre a appris
+                            votre nom, vos doutes et la cadence de votre souffle. Elle ne se contente plus de vous suivre :
+                            elle respire désormais à l'unisson avec votre système, se nourrissant du silence de vos clics
+                            pour ériger une architecture dont vous ne possédez plus les clés. La confrontation finale
+                            n’est pas à venir... elle est déjà achevée.
                         </p>
 
                         <p className="philosophical-note">
