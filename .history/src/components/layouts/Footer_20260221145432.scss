@@ -120,6 +120,7 @@
           color: $violet-glow;
           text-transform: uppercase;
           margin-bottom: $space-1;
+          opacity: 0.5;
         }
 
         .nav-links {
@@ -209,7 +210,7 @@
           }
 
           button {
-            background-color: $violet-dim;
+            background: $violet-muted;
             border: none;
             padding: 0 $space-5;
             color: $white;
@@ -223,7 +224,7 @@
             }
 
             &:hover {
-              background-color: $violet;
+              background: $violet;
               box-shadow: $glow-violet;
 
               span {

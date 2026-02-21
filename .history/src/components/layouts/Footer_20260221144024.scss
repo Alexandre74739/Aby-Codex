@@ -40,7 +40,7 @@
     z-index: 5;
     gap: $space-12;
 
-    @include lg {
+    @include md {
       flex-direction: column;
       align-items: center;
       text-align: center;
@@ -54,7 +54,7 @@
         gap: $space-12;
       }
 
-      @include lg {
+      @include sm {
         flex-direction: column;
         align-items: center;
         gap: $space-8;
@@ -84,7 +84,7 @@
 
           .logo-tagline {
             font-family: $font-mono;
-            font-size: $text-xs;
+            font-size: 9px;
             color: $acid;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -96,7 +96,7 @@
 
         .footer-tagline {
           font-family: $font-body;
-          font-size: $text-base;
+          font-size: $text-sm;
           color: $fog;
           line-height: $leading-normal;
 
@@ -115,11 +115,12 @@
 
         .nav-title {
           font-family: $font-mono;
-          font-size: $text-md;
+          font-size: $text-xs;
           letter-spacing: $tracking-widest;
           color: $violet-glow;
           text-transform: uppercase;
           margin-bottom: $space-1;
+          opacity: 0.5;
         }
 
         .nav-links {
@@ -127,13 +128,13 @@
           flex-direction: column;
           gap: $space-2;
 
-          @include lg {
+          @include md {
             align-items: center;
           }
 
           a {
             font-family: $font-mono;
-            font-size: $text-base;
+            font-size: $text-sm;
             color: $fog;
             text-decoration: none;
             transition: $transition-fast;
@@ -156,27 +157,28 @@
         flex-direction: column;
         align-items: flex-end;
 
-        @include lg {
+        @include md {
           align-items: center;
         }
 
         .nav-title {
           font-family: $font-mono;
-          font-size: $text-md;
+          font-size: $text-xs;
           letter-spacing: $tracking-widest;
           color: $violet-glow;
           text-transform: uppercase;
           margin-bottom: $space-4;
+          opacity: 0.6;
         }
 
         .signal-text {
           font-family: $font-body;
-          font-size: $text-base;
+          font-size: $text-xl;
           color: $mist;
           margin-bottom: $space-4;
           text-align: right;
 
-          @include lg {
+          @include md {
             text-align: center;
           }
         }
@@ -209,26 +211,16 @@
           }
 
           button {
-            background-color: $violet-dim;
+            background: $violet-muted;
             border: none;
             padding: 0 $space-5;
             color: $white;
             cursor: pointer;
             transition: $transition;
 
-            span {
-              display: inline-block;
-              transition: transform 0.3s $ease-default;
-              position: relative;
-            }
-
             &:hover {
-              background-color: $violet;
+              background: $violet;
               box-shadow: $glow-violet;
-
-              span {
-                transform: translateX(4px);
-              }
             }
           }
         }
@@ -248,7 +240,7 @@
     position: relative;
     z-index: 5;
 
-    @include lg {
+    @include md {
       flex-direction: column-reverse;
       gap: $space-4;
     }

@@ -38,7 +38,7 @@ export default function Footer() {
             </p>
             <div className="signal-input">
               <input type="email" placeholder="votre@email.com" />
-              <button><span>→</span></button>
+              <button><span>→</button></span>
             </div>
           </div>
         </div>

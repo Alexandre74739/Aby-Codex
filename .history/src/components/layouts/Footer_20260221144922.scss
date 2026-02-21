@@ -120,6 +120,7 @@
           color: $violet-glow;
           text-transform: uppercase;
           margin-bottom: $space-1;
+          opacity: 0.5;
         }
 
         .nav-links {
@@ -167,6 +168,7 @@
           color: $violet-glow;
           text-transform: uppercase;
           margin-bottom: $space-4;
+          opacity: 0.6;
         }
 
         .signal-text {
@@ -209,26 +211,20 @@
           }
 
           button {
-            background-color: $violet-dim;
+            background: $violet-muted;
             border: none;
             padding: 0 $space-5;
             color: $white;
             cursor: pointer;
             transition: $transition;
 
-            span {
-              display: inline-block;
-              transition: transform 0.3s $ease-default;
-              position: relative;
+            &:hover {
+              background: $violet;
+              box-shadow: $glow-violet;
             }
 
-            &:hover {
-              background-color: $violet;
-              box-shadow: $glow-violet;
-
-              span {
-                transform: translateX(4px);
-              }
+            span {
+              position: relative;
             }
           }
         }

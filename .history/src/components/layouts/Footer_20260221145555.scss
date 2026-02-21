@@ -209,7 +209,7 @@
           }
 
           button {
-            background-color: $violet-dim;
+            background: $violet;
             border: none;
             padding: 0 $space-5;
             color: $white;
@@ -223,7 +223,7 @@
             }
 
             &:hover {
-              background-color: $violet;
+              background-color: $violet-dim;
               box-shadow: $glow-violet;
 
               span {
