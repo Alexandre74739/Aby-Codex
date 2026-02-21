@@ -1,0 +1,235 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.footer {
+    margin-top: $space-24;
+    background: $abyss;
+    border-top: 1px solid $border;
+    position: relative;
+    overflow: hidden;
+    animation: flicker 12s infinite;
+
+    // Ligne de balayage supérieure (identique à l'ambiance Header)
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, 
+            transparent, 
+            $violet 20%, 
+            $acid 50%, 
+            $violet 80%, 
+            transparent
+        );
+        opacity: 0.4;
+    }
+}
+
+.footer__grid-line {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba($violet, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba($violet, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.footer__inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: $space-12;
+    padding-top: $space-16;
+    padding-bottom: $space-12;
+    position: relative;
+    z-index: 2;
+
+    @include lg {
+        grid-template-columns: 1fr 1fr;
+        gap: $space-16;
+    }
+
+    @include sm {
+        grid-template-columns: 1fr;
+        gap: $space-10;
+        text-align: center;
+    }
+}
+
+// Récupération exacte du style logo du Header
+.header-logo {
+    text-decoration: none;
+    display: block;
+    margin-bottom: $space-4;
+
+    .logo-title {
+        font-family: $font-title;
+        font-size: $space-7;
+        color: $white;
+        letter-spacing: $tracking-wide;
+        margin: 0;
+
+        span {
+            color: transparent;
+            -webkit-text-stroke: 1px $violet;
+        }
+    }
+
+    .logo-tagline {
+        font-family: $font-mono;
+        font-size: 10px;
+        color: $acid;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: $space-1;
+    }
+
+    &:hover .logo-title {
+        animation: glitch-light 0.4s $ease-out forwards;
+    }
+}
+
+.footer__tagline {
+    font-family: $font-body;
+    font-size: $text-base;
+    color: $fog;
+    line-height: $leading-normal;
+    margin-top: $space-2;
+
+    em {
+        color: $acid;
+        font-style: italic;
+        text-shadow: 0 0 8px rgba($acid, 0.2);
+    }
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    .footer__nav-title {
+        font-family: $font-mono;
+        font-size: $text-xs;
+        letter-spacing: $tracking-widest;
+        color: $violet-glow;
+        text-transform: uppercase;
+        margin-bottom: $space-2;
+        opacity: 0.6;
+    }
+
+    a {
+        font-family: $font-body;
+        font-size: $text-sm;
+        color: $fog;
+        text-decoration: none;
+        transition: $transition;
+
+        &:hover {
+            color: $white;
+            padding-left: $space-1;
+            animation: glitch-snap 0.3s $ease-out;
+            text-shadow: 0 0 10px rgba($violet, 0.5);
+        }
+    }
+}
+
+.footer__signal {
+    @include sm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__signal-text {
+        font-family: $font-body;
+        font-size: $text-sm;
+        color: $fog;
+        margin-bottom: $space-4;
+    }
+
+    .footer__signal-input {
+        display: flex;
+        background: rgba($void, 0.4);
+        border: 1px solid $border;
+        border-radius: 2px;
+        transition: $transition;
+        max-width: 300px;
+
+        &:focus-within {
+            border-color: $violet;
+            box-shadow: $glow-violet;
+        }
+
+        input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: $space-3;
+            font-family: $font-mono;
+            font-size: $text-xs;
+            color: $white;
+            outline: none;
+
+            &::placeholder { color: $phantom; }
+        }
+
+        button {
+            background: $violet-muted;
+            border: none;
+            padding: 0 $space-4;
+            color: $white;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                background: $violet;
+                box-shadow: $glow-violet;
+            }
+        }
+    }
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $space-8 0;
+    border-top: 1px solid rgba($border, 0.5);
+    position: relative;
+    z-index: 2;
+
+    @include sm {
+        flex-direction: column;
+        gap: $space-4;
+    }
+
+    .footer__copyright {
+        font-family: $font-mono;
+        font-size: 10px;
+        color: $phantom;
+        letter-spacing: 1px;
+    }
+
+    .footer__version {
+        font-family: $font-mono;
+        font-size: 10px;
+        color: $acid;
+        display: flex;
+        align-items: center;
+        gap: $space-3;
+        opacity: 0.7;
+
+        .footer__status {
+            width: 8px;
+            height: 8px;
+            background: $acid;
+            border-radius: 50%;
+            animation: status-blink 2s infinite;
+        }
+    }
+}

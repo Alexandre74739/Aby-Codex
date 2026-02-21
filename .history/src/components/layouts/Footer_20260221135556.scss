@@ -1,0 +1,254 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.footer {
+  margin-top: $space-24;
+  background: $abyss;
+  border-top: 1px solid $border;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        $violet 25%,
+        $acid 50%,
+        $violet 75%,
+        transparent);
+    opacity: 0.4;
+  }
+
+  .footer-grid-line {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($violet, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($violet, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: $space-12;
+    padding: $space-20 $container-pad $space-12;
+    max-width: $bp-3xl;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+
+    @include lg {
+      grid-template-columns: 1fr 1fr;
+      gap: $space-10;
+    }
+
+    @include sm {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+
+    @include sm {
+      align-items: center;
+    }
+
+    .footer-logo-override {
+      text-decoration: none;
+
+      .logo-title {
+        font-family: $font-title;
+        font-size: $text-2xl;
+        color: $white;
+        letter-spacing: $tracking-widest;
+        margin: 0;
+        line-height: 1;
+
+        span {
+          color: transparent;
+          -webkit-text-stroke: 1px $violet;
+        }
+      }
+
+      .logo-tagline {
+        font-family: $font-mono;
+        font-size: 9px;
+        color: $acid;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+        margin-top: $space-2;
+        opacity: 0.8;
+      }
+
+      &:hover {
+        .logo-title {
+          animation: glitch-heavy 0.3s steps(2) infinite;
+        }
+
+        .logo-tagline {
+          color: $white;
+          animation: glitch-snap 0.5s ease;
+        }
+      }
+    }
+
+    .footer-tagline {
+      font-family: $font-body;
+      font-size: $text-md;
+      color: $fog;
+      line-height: $leading-normal;
+
+      em {
+        color: $acid;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba($acid, 0.3);
+      }
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    @include sm {
+      align-items: center;
+    }
+
+    .nav-title {
+      font-family: $font-mono;
+      font-size: $text-xs;
+      letter-spacing: $tracking-widest;
+      color: $violet-glow;
+      text-transform: uppercase;
+      margin-bottom: $space-3;
+      opacity: 0.6;
+    }
+
+    a {
+      font-family: $font-mono;
+      font-size: $text-sm;
+      color: $fog;
+      text-decoration: none;
+      transition: $transition-fast;
+      width: fit-content;
+
+      &:hover {
+        color: $acid;
+        padding-left: $space-2;
+        text-shadow: $glow-text-acid;
+        animation: glitch-light 4s infinite;
+      }
+    }
+  }
+
+  .footer-signal {
+    @include sm {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .signal-text {
+      font-family: $font-body;
+      font-size: $text-sm;
+      color: $mist;
+      margin-bottom: $space-4;
+    }
+
+    .signal-input {
+      display: flex;
+      background: rgba($void, 0.6);
+      border: 1px solid $border;
+      transition: $transition;
+      width: 100%;
+      max-width: 300px;
+
+      &:focus-within {
+        border-color: $violet;
+        box-shadow: $glow-violet;
+      }
+
+      input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: $space-3;
+        font-family: $font-mono;
+        font-size: $text-xs;
+        color: $white;
+        outline: none;
+
+        &::placeholder {
+          color: $phantom;
+        }
+      }
+
+      button {
+        background: $violet-muted;
+        border: none;
+        padding: 0 $space-5;
+        color: $white;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          background: $violet;
+          box-shadow: $glow-violet;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: $bp-3xl;
+    margin: 0 auto;
+    padding: $space-6 $container-pad $space-10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba($border, 0.5);
+    position: relative;
+    z-index: 5;
+
+    @include sm {
+      flex-direction: column-reverse;
+      gap: $space-4;
+    }
+
+    .copyright {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $phantom;
+    }
+
+    .version {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $acid;
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        background: $acid;
+        border-radius: 50%;
+        animation: status-blink 2s infinite;
+      }
+    }
+  }
+}

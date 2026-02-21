@@ -7,6 +7,7 @@ export default function Footer() {
       <div className="footer-grid-line" />
 
       <div className="footer-inner container">
+        {/* Groupe Gauche : Identité et Navigation */}
         <div className="footer-left-group">
           <div className="footer-brand">
             <Link to="/" className="header-logo footer-logo-override">
@@ -30,6 +31,7 @@ export default function Footer() {
           </nav>
         </div>
 
+        {/* Groupe Droite : Signal/Newsletter */}
         <div className="footer-right-group">
           <div className="footer-signal">
             <span className="nav-title">Signal</span>
