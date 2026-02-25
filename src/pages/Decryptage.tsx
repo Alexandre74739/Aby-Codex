@@ -1,7 +1,8 @@
+import Hero from '../components/sections/Hero';
 
 export default function Decryptage() {
   return (
-    <>
-    <p>salut</p>
-    </>
+    <div className="decryptage">
+    <Hero />
+    </div>
 )}

@@ -1,26 +1,43 @@
 import "./Hero.scss";
-import bgHorreur from "../../assets/bg-horreur.mp4";
-import Button from '../utils/Button';
+import Button from "../utils/Button";
 
-export default function Hero() {
+interface HeroProps {
+  videoSrc: string;
+  eyebrow: string;
+  titleTop: string;
+  titleSpan: string;
+  description: string;
+  buttonLink: string;
+  buttonLabel: string;
+}
+
+export default function Hero({
+  videoSrc,
+  eyebrow,
+  titleTop,
+  titleSpan,
+  description,
+  buttonLink,
+  buttonLabel,
+}: HeroProps) {
   return (
     <section className="hero">
       <video autoPlay muted loop playsInline className="hero-video">
-        <source src={bgHorreur} type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
+
       <div className="hero-hero container">
-        <p className="hero-eyebrow">FRAGMENT PSYCHOLOGIQUE</p>
+        <p className="hero-eyebrow">{eyebrow}</p>
+
         <h1 className="hero-title">
-          L'Horreur <br />
-          <span>comme miroir</span>
+          {titleTop} <br />
+          <span>{titleSpan}</span>
         </h1>
-        <p className="hero-desc">
-          Bienvenue dans Aby Codex, un espace où la peur cesse d'être un frisson
-          pour devenir une clef de lecture du monde intérieur. Explorez les
-          abysses de l'inconscient à travers les récits qui hantent nos écrans.
-        </p>
-        <Button to="/decryptage" label="Commencer l'exploration" variant="primary"/>
+
+        <p className="hero-desc">{description}</p>
+
+        <Button to={buttonLink} label={buttonLabel} variant="primary" />
       </div>
     </section>
   );
