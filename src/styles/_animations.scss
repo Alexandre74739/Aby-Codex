@@ -218,6 +218,17 @@
   }
 }
 
+// Onde sonore (visualiseur audio)
+@keyframes sound-wave {
+  0% {
+    height: 20%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
 // Static TV (bruit vertical)
 @keyframes static-noise {
   0% {
