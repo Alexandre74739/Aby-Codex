@@ -1,4 +1,5 @@
 import Hero from "../components/sections/Hero";
+import DecryptageList from "../components/sections/DecryptageList";
 import bgHorreur from "../assets/bg-horreur-decryptage.mp4";
 
 export default function Decryptage() {
@@ -13,6 +14,7 @@ export default function Decryptage() {
         buttonLink="/codex"
         buttonLabel="Plongez dans le Codex"
       />
+      <DecryptageList />
     </div>
   );
 }

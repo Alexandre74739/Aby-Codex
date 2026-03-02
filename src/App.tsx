@@ -5,6 +5,7 @@ import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import Nexus from './pages/Nexus';
 import Decryptage from './pages/Decryptage';
+import CharacterDetail from "./pages/CharacterDetail";
 import Codex from './pages/Codex';
 import Diagnostic from './pages/Diagnostic';
 
@@ -64,6 +65,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Nexus />} />
             <Route path="/decryptage" element={<Decryptage />} />
+            <Route path="/decryptage/:slug" element={<CharacterDetail />} />
             <Route path="/codex" element={<Codex />} />
             <Route path="/diagnostic" element={<Diagnostic />} />
           </Routes>

@@ -1,0 +1,69 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "../data/supabaseClient";
+import type { Character } from "../data/character";
+
+export default function CharacterDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const [char, setChar] = useState<Character | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFullData = async () => {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from("aby_codex_characters")
+          .select("*")
+          .eq("slug", slug)
+          .single();
+
+        if (error) throw error;
+        if (data) setChar(data as Character);
+      } catch (err) {
+        console.error("Erreur de récupération :", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (slug) fetchFullData();
+  }, [slug]);
+
+  if (loading)
+    return <div className="loading">Accès aux serveurs en cours...</div>;
+  if (!char) return <div className="error">Dossier introuvable.</div>;
+
+  return (
+    <section className="char-detail-page">
+      <div className="container">
+        <div className="detail-header">
+          <h1 className="char-name">{char.name}</h1>
+          <p>{char.quote}</p>
+          <div className="origin">
+            <p className="name-tag">{char.origin}</p>
+            <span className="type-tag">{char.type}</span>
+          </div>
+        </div>
+
+        <div className="analysis-grid">
+          <div className="analysis-section">
+            <h2 className="section-title">Analyse Psychologique</h2>
+            <p className="analysis-text">{char.analysis_text}</p>
+          </div>
+
+          <div className="philo-section">
+            <h2 className="section-title">Systèmes Philosophiques</h2>
+            <ul className="philo-list">
+              {char.philosophers?.map((p) => (
+                <li key={p} className="philo-item">
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
