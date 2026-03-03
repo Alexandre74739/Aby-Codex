@@ -46,21 +46,44 @@ export default function CharacterDetail() {
           </div>
         </div>
 
+        <div className="history-section">
+          <h2 className="section-title">Origines Déclassées</h2>
+          <p className="history-text">{char.histoire}</p>
+        </div>
+
         <div className="analysis-grid">
           <div className="analysis-section">
             <h2 className="section-title">Analyse Psychologique</h2>
             <p className="analysis-text">{char.analysis_text}</p>
           </div>
 
-          <div className="philo-section">
-            <h2 className="section-title">Systèmes Philosophiques</h2>
-            <ul className="philo-list">
-              {char.philosophers?.map((p) => (
-                <li key={p} className="philo-item">
-                  {p}
-                </li>
-              ))}
-            </ul>
+          <div className="expertise-section">
+            <h2 className="section-title">
+              Analyse <span>Structurelle</span>
+            </h2>
+
+            <div className="expertise-group">
+              <h3 className="expertise-label">Systèmes Philosophiques</h3>
+              <ul className="expertise-list philo">
+                {char.philosophers?.map((p) => (
+                  <li key={p} className="expertise-item">
+                    <span className="bracket">[</span> {p}{" "}
+                    <span className="bracket">]</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="expertise-group">
+              <h3 className="expertise-label">Concepts Psychiatriques</h3>
+              <ul className="expertise-list psycho">
+                {char.psycho_concepts?.map((c) => (
+                  <li key={c} className="expertise-item">
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
