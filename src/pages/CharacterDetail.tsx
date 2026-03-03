@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "../data/supabaseClient";
 import type { Character } from "../data/character";
+import "./CharacterDetail.scss";
 
 export default function CharacterDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -39,7 +40,7 @@ export default function CharacterDetail() {
       <div className="container">
         <div className="detail-header">
           <h1 className="char-name">{char.name}</h1>
-          <p>{char.quote}</p>
+          <p>"{char.quote}"</p>
           <div className="origin">
             <p className="name-tag">{char.origin}</p>
             <span className="type-tag">{char.type}</span>
@@ -53,36 +54,39 @@ export default function CharacterDetail() {
 
         <div className="analysis-grid">
           <div className="analysis-section">
-            <h2 className="section-title">Analyse Psychologique</h2>
+            <h3 className="section-title">
+              Analyse <span>Psychologique</span>
+            </h3>
             <p className="analysis-text">{char.analysis_text}</p>
           </div>
 
           <div className="expertise-section">
-            <h2 className="section-title">
+            <h3 className="section-title">
               Analyse <span>Structurelle</span>
-            </h2>
+            </h3>
 
-            <div className="expertise-group">
-              <h3 className="expertise-label">Systèmes Philosophiques</h3>
-              <ul className="expertise-list philo">
-                {char.philosophers?.map((p) => (
-                  <li key={p} className="expertise-item">
-                    <span className="bracket">[</span> {p}{" "}
-                    <span className="bracket">]</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="interpretation-container">
+              <div className="expertise-group">
+                <h4 className="expertise-label">Systèmes Philosophiques</h4>
+                <ul className="expertise-list philo">
+                  {char.philosophers?.map((p) => (
+                    <li key={p} className="expertise-item">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="expertise-group">
-              <h3 className="expertise-label">Concepts Psychiatriques</h3>
-              <ul className="expertise-list psycho">
-                {char.psycho_concepts?.map((c) => (
-                  <li key={c} className="expertise-item">
-                    {c}
-                  </li>
-                ))}
-              </ul>
+              <div className="expertise-group">
+                <h4 className="expertise-label">Concepts Psychiatriques</h4>
+                <ul className="expertise-list psycho">
+                  {char.psycho_concepts?.map((c) => (
+                    <li key={c} className="expertise-item">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

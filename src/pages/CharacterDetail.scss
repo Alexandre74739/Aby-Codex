@@ -1,0 +1,190 @@
+@import '../styles/variables';
+@import '../styles/animations';
+
+.char-detail-page {
+    background: $void;
+    min-height: 100vh;
+    padding: $space-24 0;
+    color: $mist;
+    position: relative;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        z-index: 1;
+        max-width: $bp-3xl;
+        margin: 100px auto;
+        padding: 0 $container-pad;
+        display: flex;
+        flex-direction: column;
+        gap: $space-20;
+    }
+
+    .detail-header {
+        text-align: center;
+        max-width: $bp-lg;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-6;
+
+        .char-name {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            color: $white;
+            line-height: 1.1;
+        }
+
+        p {
+            font-family: $font-body;
+            font-size: $text-xl;
+            font-style: italic;
+            color: $fog;
+            line-height: 1.8;
+            max-width: $bp-3xl;
+        }
+
+        .origin {
+            display: flex;
+            align-items: center;
+            gap: $space-4;
+
+            .name-tag {
+                font-family: $font-mono;
+                font-size: $text-base;
+                color: $fog;
+                letter-spacing: 1px;
+            }
+
+            .type-tag {
+                font-family: $font-mono;
+                font-size: $text-sm;
+                color: $acid;
+                letter-spacing: $tracking-widest;
+                text-transform: uppercase;
+                padding: $space-1 $space-3;
+                background: transparent;
+                border: 1px solid $violet;
+                transition: 0.3s ease-in-out;
+
+                &:hover {
+                    background: $violet;
+                    color: $white;
+                    box-shadow: $glow-violet;
+                    transition: all $duration-fast $ease-spring;
+                }
+            }
+        }
+    }
+
+    .history-section {
+        max-width: $bp-lg;
+        margin: 0 auto;
+        width: 100%;
+        animation: fade-in-up 0.8s;
+
+        .section-title {
+            font-family: $font-title;
+            font-size: $text-3xl;
+            color: $white;
+            text-transform: uppercase;
+            margin-bottom: $space-8;
+        }
+
+        .history-text {
+            font-family: $font-body;
+            font-size: $text-lg;
+            line-height: 1.8;
+            color: $fog;
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+
+    .analysis-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $space-8;
+        animation: fade-in-up 0.8s $ease-default 0.4s both;
+
+        >* {
+            @for $i from 1 through 2 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.2}s;
+                }
+            }
+        }
+
+        .analysis-section,
+        .expertise-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            padding: $space-10;
+            background: rgba($surface, 0.6);
+            border: 1px solid rgba($border, 0.4);
+            transition: 0.3s ease;
+
+            &:hover {
+                background: rgba($border, 0.6);
+            }
+        }
+
+        .section-title {
+            font-family: $font-title;
+            font-size: $text-xl;
+            color: $white;
+            text-transform: uppercase;
+            margin-bottom: $space-8;
+
+            span {
+                color: transparent;
+                -webkit-text-stroke: 1px $violet;
+            }
+        }
+
+        .analysis-text {
+            font-family: $font-body;
+            font-size: $text-lg;
+            line-height: 1.8;
+            color: $fog;
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+
+    .expertise-group {
+        .expertise-label {
+            font-family: $font-mono;
+            font-size: $text-base;
+            letter-spacing: $tracking-widest;
+            color: $phantom;
+            margin: $space-4 0;
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $space-3;
+            list-style: none;
+            padding: 0;
+
+            .expertise-item {
+                font-family: $font-mono;
+                font-size: $text-xs;
+                padding: $space-2 $space-4;
+                color: $fog;
+                background: $void;
+                border: 1px solid $border;
+                transition: all $duration-fast $ease-spring;
+                cursor: default;
+            }
+        }
+    }
+}
