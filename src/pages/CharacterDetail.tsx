@@ -48,7 +48,7 @@ export default function CharacterDetail() {
         </div>
 
         <div className="history-section">
-          <h2 className="section-title">Origines Déclassées</h2>
+          <h2 className="section-title">Origines <span>Déclassées</span></h2>
           <p className="history-text">{char.histoire}</p>
         </div>
 

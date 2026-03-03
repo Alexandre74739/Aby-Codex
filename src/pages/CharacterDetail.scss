@@ -90,6 +90,11 @@
             color: $white;
             text-transform: uppercase;
             margin-bottom: $space-8;
+
+            span {
+                color: transparent;
+                -webkit-text-stroke: 1px $violet;
+            }
         }
 
         .history-text {
