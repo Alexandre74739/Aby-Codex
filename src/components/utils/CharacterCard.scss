@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.char-card {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 380px;
+    text-decoration: none;
+    border: 1px solid $border;
+    overflow: hidden;
+    position: relative;
+    background: $surface;
+    transition: border-color $transition, transform $transition, box-shadow $transition;
+
+    &-image {
+        position: relative;
+        height: 70%;
+        overflow: hidden;
+        background: $abyss;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(80%) brightness(0.6);
+            transition: transform $transition-slow, filter $transition-slow;
+        }
+    }
+
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent 40%, rgba($void, 0.9) 100%);
+        opacity: 0.6;
+        transition: opacity $transition;
+    }
+
+    &-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $space-5 $space-6;
+        background: $surface;
+        border-top: 1px solid rgba($border, 0.5);
+
+        .char-name {
+            font-family: $font-title;
+            font-size: $text-lg;
+            color: $fog;
+            letter-spacing: $tracking-wide;
+            transition: color $transition;
+        }
+
+        .char-card-arrow {
+            font-family: $font-mono;
+            font-size: $text-xl;
+            font-weight: bold;
+            color: $violet-dim;
+            transition: transform $transition, color $transition;
+            flex-shrink: 0;
+        }
+    }
+
+    &:hover {
+        border-color: $violet-dim;
+
+        .char-card-image img {
+            transform: scale(1.1);
+            filter: grayscale(0%) brightness(0.8);
+        }
+
+        .char-card-overlay {
+            opacity: 1;
+        }
+
+        .char-name {
+            color: $white;
+        }
+
+        .char-card-arrow {
+            transform: translateX(4px);
+            color: $acid;
+        }
+    }
+}
