@@ -21,6 +21,12 @@ export default function DecryptageList() {
   return (
     <section className="decryptage-grid container">
       <h2 className="section-title">Archives : Dossiers Cliniques</h2>
+      <p className="section-subtitle">
+        Autopsies de la psyché et dossiers déclassés. Explorez les racines de
+        l'abîme à travers une dissection philosophique de ces figures de
+        l'ombre. Apprenez à les connaître, à les comprendre, et peut-être à
+        apprécier leur monstre interne.
+      </p>
       <div className="grid-container">
         {characters.map((char) => (
           <CharacterCard key={char.slug} character={char} />

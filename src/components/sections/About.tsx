@@ -1,4 +1,5 @@
 import './About.scss';
+import Badge from '../utils/Badge';
 import Card from '../utils/Card';
 
 export default function About() {
@@ -7,7 +8,7 @@ export default function About() {
       <div className="about-container">
         
         <header className="about-header">
-          <span className="about-eyebrow">MANIFESTE</span>
+          <Badge eyebrow="MANIFESTE" />
           <h2 className="about-title">Ce que l'horreur <span>révèle</span></h2>
           <div className="about-content">
             <p>

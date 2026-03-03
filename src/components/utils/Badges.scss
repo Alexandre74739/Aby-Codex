@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.hero-eyebrow {
+    font-family: $font-mono;
+    font-size: $text-xs;
+    color: $acid;
+    letter-spacing: $space-1;
+    margin-bottom: $space-4;
+    text-transform: uppercase;
+}

@@ -1,4 +1,5 @@
 import "./Hero.scss";
+import Badge from "../utils/Badge";
 import Button from "../utils/Button";
 
 interface HeroProps {
@@ -28,7 +29,7 @@ export default function Hero({
       <div className="hero-overlay"></div>
 
       <div className="hero-hero container">
-        <p className="hero-eyebrow">{eyebrow}</p>
+        <Badge eyebrow={eyebrow} />
 
         <h1 className="hero-title">
           {titleTop} <br />
