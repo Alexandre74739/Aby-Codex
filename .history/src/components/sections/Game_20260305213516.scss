@@ -1,0 +1,248 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+.codex {
+  min-height: 100vh;
+  background: $void;
+  padding: $space-24 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.codex-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.codex-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba($violet, 0.07) 0%, transparent 65%);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.codex-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba($violet, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($violet, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.codex-container {
+  position: relative;
+  z-index: 1;
+  max-width: $bp-3xl;
+  margin: 0 auto;
+  padding: 0 $container-pad;
+  display: flex;
+  flex-direction: column;
+  gap: $space-24;
+}
+
+// ── Header ──────────────────────────────────────────────────
+
+.codex-header {
+  text-align: center;
+  max-width: $bp-lg;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-6;
+  animation: fade-in-up 0.7s $ease-out both;
+}
+
+.codex-label {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-widest;
+  color: $acid;
+  opacity: 0.7;
+}
+
+.codex-title {
+  font-family: $font-title;
+  font-size: $text-3xl;
+  color: $white;
+  line-height: 1.1;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke: 1px $violet;
+  }
+}
+
+.codex-intro {
+  font-family: $font-body;
+  font-size: $text-lg;
+  color: $fog;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+// ── Concepts ────────────────────────────────────────────────
+
+.codex-concepts {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: $space-4;
+  align-items: start;
+  animation: fade-in-up 0.7s $ease-out 0.1s both;
+
+  @include lg { grid-template-columns: 1fr; }
+}
+
+.codex-concepts-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.codex-concept-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-5 $space-6;
+  background: rgba($surface, 0.4);
+  border: 1px solid rgba($border, 0.5);
+  color: $fog;
+  text-align: left;
+  transition: all $transition;
+
+  &:hover {
+    background: rgba($surface, 0.8);
+    border-color: rgba($violet-dim, 0.6);
+    color: $mist;
+  }
+
+  &.active {
+    background: rgba($violet, 0.08);
+    border-color: $violet-dim;
+    color: $white;
+
+    .codex-concept-name { color: $violet-glow; }
+    .codex-concept-author { color: $acid; }
+  }
+}
+
+.codex-concept-name {
+  font-family: $font-title;
+  font-size: $text-md;
+  letter-spacing: $tracking-wide;
+  transition: color $transition;
+}
+
+.codex-concept-author {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-wider;
+  color: $phantom;
+  transition: color $transition;
+}
+
+.codex-concept-panel {
+  padding: $space-10;
+  background: rgba($surface, 0.3);
+  border: 1px solid rgba($border, 0.4);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-6;
+  transition: background $transition;
+
+  &.visible { background: rgba($surface, 0.5); }
+}
+
+.codex-concept-author-label {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-widest;
+  color: $acid;
+  opacity: 0.7;
+  animation: fade-in 0.3s $ease-out both;
+}
+
+.codex-concept-title {
+  font-family: $font-title;
+  font-size: $text-2xl;
+  color: $white;
+  line-height: $leading-snug;
+  animation: fade-in-up 0.4s $ease-out both;
+}
+
+.codex-concept-def {
+  font-family: $font-body;
+  font-size: $text-md;
+  color: $fog;
+  line-height: 1.8;
+  animation: fade-in-up 0.4s $ease-out 0.05s both;
+
+  strong { color: $white; }
+}
+
+.codex-concept-quote {
+  font-family: $font-mono;
+  font-size: $text-xs;
+  letter-spacing: $tracking-wide;
+  color: rgba($violet-glow, 0.6);
+  font-style: italic;
+  padding-left: $space-4;
+  border-left: 1px solid rgba($violet, 0.3);
+  line-height: $leading-normal;
+  animation: fade-in-up 0.4s $ease-out 0.1s both;
+}
+
+.codex-concept-empty {
+  font-family: $font-mono;
+  font-size: $text-sm;
+  color: $phantom;
+  letter-spacing: $tracking-wider;
+  text-align: center;
+}
+
+// ── Jeu ─────────────────────────────────────────────────────
+
+.codex-game {
+  display: flex;
+  flex-direction: column;
+  gap: $space-10;
+  animation: fade-in-up 0.7s $ease-out 0.2s both;
+}
+
+.codex-game-header {
+  text-align: center;
+  max-width: $bp-lg;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+}
+
+.codex-game-title {
+  font-family: $font-title;
+  font-size: $text-3xl;
+  color: $white;
+  line-height: 1.1;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke: 1px $violet;
+  }
+}
+
+.codex-game-intro {
+  font-family: $font-body;
+  font-size: $text-lg;
+  color: $fog;
+  line-height: 1.8;
+  max-width: 480px;
+}

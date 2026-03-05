@@ -1,6 +1,4 @@
 import Hero from "../components/sections/Hero";
-import Game from "../components/sections/Game"
-import SortGame from "../components/sections/Sortgame";
 import bgHorreur from "../assets/bg-horreur-decryptage.mp4";
 
 export default function Codex() {
@@ -15,7 +13,5 @@ export default function Codex() {
         buttonLink="/codex"
         buttonLabel="Plongez dans le Codex"
       />
-      <Game />
-      <SortGame />
     </div>
 )}

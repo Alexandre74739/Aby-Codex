@@ -1,0 +1,193 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.game-manifesto {
+    position: relative;
+    min-height: 100vh;
+    padding: $space-24 0;
+    overflow: hidden;
+
+    .game-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .game-container {
+        position: relative;
+        z-index: 2;
+        max-width: $container-narrow;
+        margin: 0 auto;
+        padding: 0 $container-pad;
+
+        .game-top {
+            text-align: center;
+            margin-bottom: $space-24;
+            animation: fade-in-up $duration-slow $ease-out;
+
+            .top-meta {
+                font-family: $font-mono;
+                font-size: $text-xs;
+                color: $acid;
+                text-transform: uppercase;
+                letter-spacing: $tracking-widest;
+                margin-bottom: $space-4;
+            }
+
+            .top-title {
+                font-family: $font-title;
+                font-size: $text-4xl;
+                color: $white;
+                margin-bottom: $space-6;
+                line-height: $leading-tight;
+
+                span {
+                    color: transparent;
+                    -webkit-text-stroke: 1px $violet;
+                }
+            }
+
+            .top-description {
+                font-family: $font-body;
+                font-size: $text-lg;
+                color: $fog;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: $leading-normal;
+            }
+        }
+
+        .game-viewport {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: $space-12;
+            align-items: start;
+
+            @include lg {
+                grid-template-columns: 1fr;
+            }
+
+            .game-nav-list {
+                display: flex;
+                flex-direction: column;
+                gap: $space-3;
+
+                .game-nav-item {
+                    background: transparent;
+                    border: none;
+                    padding: $space-4 $space-6;
+                    text-align: left;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all $duration-base $ease-default;
+                    border-left: 1px solid rgba($violet, 0.2);
+
+                    .concept-name {
+                        display: block;
+                        font-family: $font-title;
+                        font-size: $text-md;
+                        color: $mist;
+                        transition: color $duration-base;
+                    }
+
+                    .concept-author {
+                        font-family: $font-mono;
+                        font-size: $text-xs;
+                        color: $phantom;
+                        transition: color $duration-base;
+                    }
+
+                    &:hover {
+                        background: rgba($violet, 0.05);
+                        border-left-color: $violet;
+
+                        .concept-name {
+                            color: $white;
+                        }
+                    }
+
+                    &.is-active {
+                        background: rgba($violet, 0.1);
+                        border-left: 3px solid $violet;
+
+                        .concept-name {
+                            color: $violet-glow;
+                        }
+
+                        .concept-author {
+                            color: $acid;
+                        }
+                    }
+                }
+            }
+
+            .game-display-panel {
+                background: $abyss;
+                padding: $space-12;
+                min-height: 400px;
+                display: flex;
+                flex-direction: column;
+                transition: all $duration-base;
+
+                .content-wrap {
+                    animation: fade-in-up $duration-base $ease-out;
+
+                    .content-label {
+                        font-family: $font-mono;
+                        font-size: $text-xs;
+                        color: $acid;
+                        text-transform: uppercase;
+                        margin-bottom: $space-2;
+                        display: block;
+                    }
+
+                    .content-title {
+                        font-family: $font-title;
+                        font-size: $text-3xl;
+                        color: $white;
+                        margin-bottom: $space-8;
+                    }
+
+                    .content-body {
+                        font-family: $font-body;
+                        font-size: $text-md;
+                        line-height: $leading-loose;
+                        color: $mist;
+                        margin-bottom: $space-10;
+                    }
+
+                    .content-quote {
+                        font-family: $font-mono;
+                        font-size: $text-sm;
+                        color: $violet-glow;
+                        padding-left: $space-6;
+                        border-left: 2px solid $violet;
+                        font-style: italic;
+                    }
+                }
+
+                .content-placeholder {
+                    margin: auto;
+                    font-family: $font-mono;
+                    color: $phantom;
+                    text-transform: uppercase;
+                    letter-spacing: $tracking-wider;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+<div className="codex-game">
+          <div className="codex-game-header">
+            <span className="codex-label">EXERCICE PRATIQUE</span>
+            <h2 className="codex-game-title">Conscient ou <span>Inconscient ?</span></h2>
+            <p className="codex-game-intro">
+              Faites glisser chaque concept dans la colonne qui lui appartient.
+              Vos instincts en disent souvent plus que votre raison.
+            </p>
+          </div>
+        </div>

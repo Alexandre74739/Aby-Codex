@@ -1,0 +1,110 @@
+@import '../../styles/variables';
+
+.sort-game {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $space-12;
+
+    // --- LA BARRE DE PROGRESSION ---
+    .game-progress-container {
+        margin-bottom: $space-16;
+
+        .progress-label {
+            font-family: $font-mono;
+            font-size: $text-xs;
+            color: $acid;
+            text-transform: uppercase;
+            margin-bottom: $space-2;
+        }
+
+        .progress-bar-track {
+            height: 4px;
+            background: rgba($white, 0.1);
+            position: relative;
+
+            .progress-bar-fill {
+                height: 100%;
+                background: $violet;
+                box-shadow: 0 0 10px rgba($violet, 0.5);
+                transition: width 0.4s ease;
+            }
+        }
+    }
+
+    // --- LE RESTE (DESIGN MINIMALISTE) ---
+    .game-content {
+        display: flex;
+        flex-direction: column;
+        gap: $space-12;
+        align-items: center;
+
+        .word-stack {
+            .word-card {
+                padding: $space-6 $space-12;
+                background: $surface;
+                border: 1px solid $border;
+                color: $white;
+                font-family: $font-title;
+                font-size: $text-xl;
+                cursor: grab;
+                transition: transform 0.2s;
+
+                &:active {
+                    cursor: grabbing;
+                }
+
+                &.is-dragging {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        .drop-zones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: $space-8;
+            width: 100%;
+
+            .drop-zone {
+                height: 200px;
+                border: 1px dashed rgba($border, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.3s;
+
+                &:hover {
+                    background: rgba($violet, 0.05);
+                    border-color: $violet;
+                }
+
+                .zone-title {
+                    font-family: $font-title;
+                    text-transform: uppercase;
+                    color: $phantom;
+                    letter-spacing: $tracking-widest;
+                }
+            }
+        }
+    }
+
+    .game-result {
+        text-align: center;
+        font-family: $font-mono;
+        color: $white;
+
+        button {
+            margin-top: $space-4;
+            background: none;
+            border: 1px solid $violet;
+            color: $violet;
+            padding: $space-2 $space-4;
+            cursor: pointer;
+
+            &:hover {
+                background: $violet;
+                color: $white;
+            }
+        }
+    }
+}

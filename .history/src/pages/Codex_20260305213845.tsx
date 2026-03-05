@@ -16,6 +16,6 @@ export default function Codex() {
         buttonLabel="Plongez dans le Codex"
       />
       <Game />
-      <SortGame />
+      
     </div>
 )}

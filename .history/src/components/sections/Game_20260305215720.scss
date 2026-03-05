@@ -1,0 +1,244 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.game-manifesto {
+    position: relative;
+    min-height: 100vh;
+    padding: $space-32 0;
+    background: radial-gradient(circle at 50% -20%, rgba($violet, 0.12), $void 70%);
+    overflow: hidden;
+
+    .game-overlay {
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+    }
+
+    .game-scanline {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent, rgba($violet, 0.03) 50%, transparent);
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .game-container {
+        position: relative;
+        z-index: 2;
+        max-width: $container-max;
+        margin: 0 auto;
+        padding: 0 $container-pad;
+
+        .game-top {
+            text-align: center;
+            margin-bottom: $space-32;
+            animation: fade-in-up $duration-slow $ease-out;
+
+            .top-meta {
+                font-family: $font-mono;
+                font-size: $text-xs;
+                color: $acid;
+                text-transform: uppercase;
+                letter-spacing: $tracking-widest;
+                margin-bottom: $space-6;
+                display: inline-flex;
+                align-items: center;
+                gap: $space-3;
+
+                &::before, &::after {
+                    content: '';
+                    width: 20px;
+                    height: 1px;
+                    background: currentColor;
+                    opacity: 0.3;
+                }
+            }
+
+            .top-title {
+                font-family: $font-title;
+                font-size: clamp($text-3xl, 8vw, $text-hero);
+                color: $white;
+                margin-bottom: $space-8;
+                line-height: 0.9;
+                text-transform: uppercase;
+
+                span {
+                    color: transparent;
+                    -webkit-text-stroke: 1px rgba($violet-glow, 0.8);
+                    filter: drop-shadow(0 0 10px rgba($violet, 0.3));
+                }
+            }
+
+            .top-description {
+                font-family: $font-body;
+                font-size: $text-xl;
+                color: $fog;
+                max-width: 700px;
+                margin: 0 auto;
+                line-height: $leading-relaxed;
+                opacity: 0.8;
+            }
+        }
+
+        .game-viewport {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: $space-16;
+            align-items: start;
+
+            @include lg {
+                grid-template-columns: 1fr;
+                gap: $space-10;
+            }
+
+            .game-nav-list {
+                display: flex;
+                flex-direction: column;
+                gap: $space-4;
+
+                .game-nav-item {
+                    background: rgba($surface, 0.2);
+                    border: 1px solid rgba($border, 0.5);
+                    padding: $space-6;
+                    text-align: left;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all $duration-base $ease-spring;
+                    position: relative;
+                    overflow: hidden;
+
+                    .nav-content {
+                        .concept-name {
+                            display: block;
+                            font-family: $font-title;
+                            font-size: $text-lg;
+                            color: $mist;
+                            margin-bottom: $space-1;
+                            transition: color $duration-base;
+                        }
+
+                        .concept-author {
+                            font-family: $font-mono;
+                            font-size: $text-xs;
+                            color: $phantom;
+                            text-transform: uppercase;
+                            letter-spacing: $tracking-wider;
+                        }
+                    }
+
+                    .nav-indicator {
+                        width: 4px;
+                        height: 0;
+                        background: $violet;
+                        transition: height $duration-base $ease-out;
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &:hover {
+                        background: rgba($surface, 0.4);
+                        border-color: rgba($violet, 0.3);
+                        transform: translateX($space-2);
+                        .concept-name { color: $white; }
+                    }
+
+                    &.is-active {
+                        background: rgba($violet, 0.08);
+                        border-color: $violet-dim;
+                        box-shadow: inset 4px 0 0 $violet;
+
+                        .concept-name { 
+                            color: $white; 
+                            text-shadow: $glow-text-violet;
+                        }
+
+                        .concept-author { color: $acid; }
+                        .nav-indicator { height: 100%; }
+                    }
+                }
+            }
+
+            .game-display-panel {
+                background: linear-gradient(145deg, rgba($surface, 0.4), rgba($abyss, 0.6));
+                border: 1px solid rgba($border, 0.5);
+                padding: $space-16;
+                min-height: 500px;
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(10px);
+
+                .content-wrap {
+                    animation: fade-in $duration-slow $ease-out;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    .content-header {
+                        margin-bottom: $space-12;
+                        
+                        .content-label {
+                            font-family: $font-mono;
+                            font-size: $text-xs;
+                            color: $acid;
+                            text-transform: uppercase;
+                            letter-spacing: $tracking-widest;
+                            margin-bottom: $space-4;
+                            display: block;
+                        }
+
+                        .content-title {
+                            font-family: $font-title;
+                            font-size: $text-4xl;
+                            color: $white;
+                            line-height: 1;
+                        }
+                    }
+
+                    .content-body {
+                        font-family: $font-body;
+                        font-size: $text-lg;
+                        line-height: $leading-loose;
+                        color: $mist;
+                        margin-bottom: $space-16;
+                        flex-grow: 1;
+                        max-width: 90%;
+                    }
+
+                    .content-footer {
+                        .content-quote {
+                            font-family: $font-mono;
+                            font-size: $text-sm;
+                            color: $violet-glow;
+                            padding: $space-6;
+                            background: rgba($void, 0.4);
+                            border-left: 2px solid $violet;
+                            font-style: italic;
+                            line-height: $leading-normal;
+                        }
+                    }
+                }
+
+                .content-placeholder {
+                    margin: auto;
+                    font-family: $font-mono;
+                    color: $phantom;
+                    text-transform: uppercase;
+                    letter-spacing: $tracking-widest;
+                    font-size: $text-sm;
+
+                    .blink {
+                        animation: blink 1s infinite;
+                        color: $acid;
+                    }
+                }
+            }
+        }
+    }
+}
