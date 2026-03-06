@@ -174,14 +174,13 @@
                         }
 
                         .content-label {
-                            display: block;
                             font-family: $font-mono;
-                            font-size: $text-sm;
+                            font-size: $text-xs;
                             color: $acid;
                             text-transform: uppercase;
                             letter-spacing: $tracking-widest;
                             margin-bottom: $space-4;
-                            animation: flicker-hard 0.8s ease-in-out infinite alternate;
+                            display: block;
                         }
 
                         .content-title {
@@ -203,11 +202,11 @@
                         color: $mist;
                         margin-bottom: $space-8;
                         flex-grow: 1;
-                        max-width: 90%;
 
                         @include sm {
                             font-size: $text-md;
                             max-width: 100%;
+                            margin-bottom: $space-8;
                         }
                     }
 

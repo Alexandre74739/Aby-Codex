@@ -31,7 +31,7 @@ export default function Game() {
         <section className="game-manifesto">
             <div className="game-container">
                 <div className="game-top">
-                    <Badge eyebrow="INTROSPECTION" />
+                    <Badge eyebrow="MANIFESTE" />
                     <h1 className="top-title">
                         Architectes <span>de l'Ombre</span>
                     </h1>
@@ -57,7 +57,7 @@ export default function Game() {
                         {activeConcept ? (
                             <div className="content-wrap" key={activeConcept.id}>
                                 <div className="content-header">
-                                    <span className="content-label">Auteur : {activeConcept.author}</span>
+                                    <span className="content-label">Auteur / {activeConcept.author}</span>
                                     <h2 className="content-title">{activeConcept.name}</h2>
                                 </div>
                                 <div className="content-body">

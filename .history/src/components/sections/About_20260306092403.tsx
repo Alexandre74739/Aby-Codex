@@ -7,7 +7,7 @@ export default function About() {
     <section className="about-section">
       <div className="about-container">
         
-        <div className="about-top">
+        <div className="about-header">
           <Badge eyebrow="MANIFESTE" />
           <h2 className="about-title">Ce que l'horreur <span>révèle</span></h2>
           <div className="about-content">

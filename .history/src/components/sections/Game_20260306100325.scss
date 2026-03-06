@@ -174,14 +174,14 @@
                         }
 
                         .content-label {
-                            display: block;
                             font-family: $font-mono;
                             font-size: $text-sm;
                             color: $acid;
                             text-transform: uppercase;
                             letter-spacing: $tracking-widest;
                             margin-bottom: $space-4;
-                            animation: flicker-hard 0.8s ease-in-out infinite alternate;
+                            display: block;
+                            animation: flicker-hard 1s infinite alternate;
                         }
 
                         .content-title {

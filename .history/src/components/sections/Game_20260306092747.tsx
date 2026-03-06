@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Badge from '../utils/Badge';
 import { concepts, type Concept } from '../../data/concept';
 import './Game.scss';
 
@@ -29,15 +28,16 @@ export default function Game() {
 
     return (
         <section className="game-manifesto">
+
             <div className="game-container">
                 <div className="game-top">
-                    <Badge eyebrow="INTROSPECTION" />
+                    <div className="top-meta">Systèmes de pensée — Codex</div>
                     <h1 className="top-title">
                         Architectes <span>de l'Ombre</span>
                     </h1>
                     <p className="top-description">
-                        Cinq concepts fondateurs. Cinq clefs pour comprendre pourquoi le monstre de
-                        l'horreur nous fascine autant qu'il nous révèle.
+                        Cinq concepts fondateurs. Cinq clefs pour comprendre pourquoi
+                        l'horreur nous fascine autant qu'elle nous révèle.
                     </p>
                 </div>
 
@@ -57,7 +57,7 @@ export default function Game() {
                         {activeConcept ? (
                             <div className="content-wrap" key={activeConcept.id}>
                                 <div className="content-header">
-                                    <span className="content-label">Auteur : {activeConcept.author}</span>
+                                    <span className="content-label">Auteur / {activeConcept.author}</span>
                                     <h2 className="content-title">{activeConcept.name}</h2>
                                 </div>
                                 <div className="content-body">

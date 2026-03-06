@@ -86,7 +86,6 @@
                     .nav-content {
                         .concept-name {
                             display: block;
-                            margin-bottom: $space-2;
                             font-family: $font-title;
                             font-size: $text-lg;
                             color: $mist;
@@ -95,10 +94,13 @@
 
                         .concept-author {
                             font-family: $font-mono;
-                            font-size: $text-sm;
+                            font-size: $text-xs;
                             color: $phantom;
+                            text-transform: uppercase;
+                            letter-spacing: $tracking-wider;
                         }
                     }
+
 
                     &:hover {
                         background-color: rgba($surface, 0.4);
@@ -125,6 +127,7 @@
 
                         .concept-name {
                             color: $white;
+                            text-shadow: $glow-text-violet;
                         }
 
                         .concept-author {
@@ -136,7 +139,7 @@
 
                             @include lg {
                                 width: 100%;
-                                height: $space-1;
+                                height: 4px;
                             }
                         }
                     }
@@ -147,17 +150,16 @@
                 flex: 2;
                 width: 100%;
                 background-color: $surface;
-                border: 1px solid rgba($violet, 0.6);
+                border: 1px solid rgba($border, 0.6);
                 padding: $space-16;
-                min-height: $bp-xs;
+                min-height: 500px;
                 display: flex;
                 flex-direction: column;
                 backdrop-filter: blur(10px);
-                background-color: rgba($violet, 0.08);
 
                 @include sm {
                     padding: $space-8;
-                    min-height: $bp-xs;
+                    min-height: 400px;
                 }
 
                 .content-wrap {
@@ -174,19 +176,18 @@
                         }
 
                         .content-label {
-                            display: block;
                             font-family: $font-mono;
-                            font-size: $text-sm;
+                            font-size: $text-xs;
                             color: $acid;
                             text-transform: uppercase;
                             letter-spacing: $tracking-widest;
                             margin-bottom: $space-4;
-                            animation: flicker-hard 0.8s ease-in-out infinite alternate;
+                            display: block;
                         }
 
                         .content-title {
                             font-family: $font-title;
-                            font-size: $text-3xl;
+                            font-size: $text-4xl;
                             color: $white;
                             line-height: 1;
 
@@ -201,13 +202,14 @@
                         font-size: $text-lg;
                         line-height: $leading-loose;
                         color: $mist;
-                        margin-bottom: $space-8;
+                        margin-bottom: $space-16;
                         flex-grow: 1;
                         max-width: 90%;
 
                         @include sm {
                             font-size: $text-md;
                             max-width: 100%;
+                            margin-bottom: $space-8;
                         }
                     }
 

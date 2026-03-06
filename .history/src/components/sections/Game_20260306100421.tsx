@@ -57,7 +57,7 @@ export default function Game() {
                         {activeConcept ? (
                             <div className="content-wrap" key={activeConcept.id}>
                                 <div className="content-header">
-                                    <span className="content-label">Auteur : {activeConcept.author}</span>
+                                    <span className="content-label-eyebrow">Auteur : {activeConcept.author}</span>
                                     <h2 className="content-title">{activeConcept.name}</h2>
                                 </div>
                                 <div className="content-body">
