@@ -9,7 +9,7 @@ function Nexus() {
     <div className="nexus">
       <Hero
         videoSrc={bgHorreur}
-        eyebrow="FRAGMENT : PSYCHOLOGIQUE"
+        eyebrow="FRAGMENT : HORRIFIQUE"
         titleTop="L'Horreur"
         titleSpan="comme miroir"
         description="Bienvenue dans Aby Codex, un espace où la peur cesse d'être un frisson pour devenir une clef de lecture du monde intérieur..."
