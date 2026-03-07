@@ -1,6 +1,6 @@
 import Hero from "../components/sections/Hero";
 import Game from "../components/sections/Game"
-import bgHorreur from "../assets/bg-horreur-decryptage.mp4";
+import bgHorreur from "../assets/bg-horreur-codex.mp4";
 
 export default function Codex() {
   return (
