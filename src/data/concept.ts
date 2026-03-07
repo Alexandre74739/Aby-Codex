@@ -18,14 +18,14 @@ export const concepts: Concept[] = [
     id: 'ombre',
     name: "L'Ombre",
     author: 'C.G. Jung',
-    definition: "La partie de la personnalité que le Moi refuse de reconnaître. Tout ce que nous nions en nous-mêmes — la violence, la honte, le désir inavouable — s'y accumule. L'horreur la plus pure naît du moment où l'Ombre remonte à la surface.",
+    definition: "La partie de la personnalité que le Moi refuse de reconnaître. Tout ce que nous nions en nous-mêmes comme la violence, la honte, le désir inavouable, s'y accumule. L'horreur la plus pure naît du moment où l'Ombre remonte à la surface.",
     quote: "On n'éclaire pas l'obscurité en imaginant des figures de lumière, mais en rendant l'obscurité consciente.",
   },
   {
     id: 'persona',
     name: 'Le Persona',
     author: 'C.G. Jung',
-    definition: "Le masque social que nous portons pour nous adapter au monde extérieur. À force de le porter, nous finissons par confondre le masque avec le visage. Les monstres de fiction sont souvent des Persona brisés — des êtres dont le masque a craqué.",
+    definition: "Le masque social que nous portons pour nous adapter au monde extérieur. À force de le porter, nous finissons par confondre le masque avec le visage. Les monstres de fiction sont souvent des Persona brisés, des êtres dont le masque a craqué.",
     quote: "Le Persona est ce que nous paraissons, mais non ce que nous sommes.",
   },
   {
@@ -39,14 +39,14 @@ export const concepts: Concept[] = [
     id: 'volonte-puissance',
     name: 'La Volonté de Puissance',
     author: 'Friedrich Nietzsche',
-    definition: "Non pas la domination des autres, mais le dépassement de soi. Le monstre nietzschéen n'est pas mauvais — il refuse simplement la morale du troupeau. Il crée ses propres valeurs là où les autres obéissent. C'est l'archétype du villain philosophique.",
+    definition: "Non pas la domination des autres, mais le dépassement de soi. Le monstre nietzschéen n'est pas mauvais, il refuse simplement la morale du troupeau. Il crée ses propres valeurs là où les autres obéissent. C'est l'archétype du villain philosophique.",
     quote: "Ce qui ne me détruit pas me rend plus fort.",
   },
   {
     id: 'mauvaise-foi',
     name: 'La Mauvaise Foi',
     author: 'Jean-Paul Sartre',
-    definition: "Le refus de la liberté. Se convaincre que l'on n'avait pas le choix, que les circonstances nous ont forcé la main. Les personnages tragiques de l'horreur vivent souvent dans la mauvaise foi — ils commettent l'irréparable en niant leur propre responsabilité.",
+    definition: "Le refus de la liberté. Se convaincre que l'on n'avait pas le choix, que les circonstances nous ont forcé la main. Les personnages tragiques de l'horreur vivent souvent dans la mauvaise foi et commettent l'irréparable en niant leur propre responsabilité.",
     quote: "L'existence précède l'essence.",
   },
 ]
