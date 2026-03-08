@@ -1,0 +1,244 @@
+@import '../styles/variables';
+@import '../styles/animations';
+
+.diagnostic {
+    min-height: 100vh;
+    padding: calc(#{$navbar-height} + #{$space-24}) 0 $space-24;
+    position: relative;
+    overflow: hidden;
+
+    .quiz-section {
+        position: relative;
+        z-index: 1;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-16;
+    }
+
+    .quiz-intro {
+        text-align: center;
+        max-width: $bp-lg;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            color: $white;
+            line-height: 1.1;
+            margin-bottom: $space-6;
+
+            span {
+                color: transparent;
+                -webkit-text-stroke: 1px $violet;
+            }
+        }
+
+        .quiz-description {
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+        }
+    }
+
+    .quiz-container {
+        width: 100%;
+        max-width: $container-narrow;
+        display: flex;
+        flex-direction: column;
+        gap: $space-8;
+    }
+
+    .quiz-top {
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+    }
+
+    .step-label {
+        font-family: $font-mono;
+        font-size: $text-base;
+        color: $fog;
+    }
+
+    .progress-bar {
+        height: 4px;
+        background: rgba($white, 0.2);
+
+        .fill {
+            height: 100%;
+            background: linear-gradient(90deg, $violet, $acid);
+        }
+    }
+
+    .question-text {
+        text-align: center;
+        font-family: $font-title;
+        font-size: $text-xl;
+        color: $white;
+        line-height: 1.1;
+        margin-bottom: $space-2;
+    }
+
+    .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-4;
+
+        @include sm {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .option-card {
+        background: rgba($surface, 0.5);
+        border: 1px solid rgba($border, 0.4);
+        padding: $space-6;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: $space-3;
+        transition: all $transition;
+
+        .card-index {
+            font-family: $font-mono;
+            font-size: $text-sm;
+            letter-spacing: $tracking-widest;
+            color: $phantom;
+            transition: $transition;
+        }
+
+        p {
+            font-family: $font-body;
+            font-size: $text-md;
+            color: $fog;
+            line-height: $leading-normal;
+            margin: 0;
+            transition: $transition;
+        }
+
+        &:hover {
+            border-color: rgba($violet-dim, 0.6);
+            background: rgba($surface, 0.8);
+            transform: translateY(-4px);
+            box-shadow: $shadow-card;
+
+            .card-index {
+                color: $acid;
+            }
+
+            p {
+                color: $white;
+            }
+        }
+    }
+
+    .results-view {
+        width: 100%;
+        max-width: $container-narrow;
+        display: flex;
+        flex-direction: column;
+        gap: $space-6;
+    }
+
+    .result-card {
+        padding: $space-12 $space-10;
+        background: rgba($surface, 0.5);
+        border: 1px solid rgba($border, 0.4);
+        display: flex;
+        flex-direction: column;
+        gap: $space-6;
+        transition: $transition;
+
+        &:hover {
+            border-color: rgba($violet-dim, 0.6);
+            background: rgba($surface, 0.8);
+            box-shadow: $shadow-card;
+        }
+
+        .sub {
+            font-family: $font-mono;
+            font-size: $text-sm;
+            letter-spacing: $tracking-widest;
+            color: $acid;
+            opacity: 0.8;
+        }
+
+        h2 {
+            font-family: $font-title;
+            font-size: $text-3xl;
+            color: $white;
+        }
+
+        .result-philosophy {
+            font-family: $font-mono;
+            font-size: $text-base;
+            letter-spacing: $tracking-wider;
+            color: rgba($violet-glow, 0.6);
+        }
+
+        p {
+            font-family: $font-body;
+            font-size: $text-lg;
+            color: $fog;
+            line-height: 1.8;
+
+            strong {
+                color: $white;
+            }
+        }
+
+        .result-traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $space-2;
+            list-style: none;
+            padding: 0;
+
+            li {
+                font-family: $font-mono;
+                font-size: $text-base;
+                letter-spacing: $tracking-wider;
+                color: $fog;
+                border: 1px solid rgba($border, 0.6);
+                padding: $space-1 $space-4;
+                background: $void;
+                transition: $transition;
+
+                &:hover {
+                    border-color: rgba($acid, 0.8);
+                    background: rgba($acid, 0.1);
+                    color: $acid;
+                    box-shadow: $glow-acid;
+                }
+            }
+        }
+    }
+
+    .reset-btn {
+        align-items: center;
+        text-align: center;
+        gap: $space-3;
+        padding: $space-4 $space-8;
+        border: 1px solid $violet;
+        background: transparent;
+        color: $violet-glow;
+        font-family: $font-mono;
+        font-size: $text-base;
+        letter-spacing: $tracking-wider;
+        transition: all $transition;
+        border-radius: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:hover {
+            background: $violet;
+            color: $white;
+            box-shadow: $glow-violet;
+            transform: translateY(-2px);
+        }
+    }
+}

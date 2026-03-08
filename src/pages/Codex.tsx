@@ -7,7 +7,7 @@ export default function Codex() {
     <div className="Codex">
       <Hero
         videoSrc={bgHorreur}
-        eyebrow="FRAGMENT / PSYCHOLOGIQUE"
+        eyebrow="FRAGMENT : PSYCHOLOGIQUE"
         titleTop="Disséquer"
         titleSpan="l'indicible"
         description="Le Mal n'est pas une absence de lumière, mais une présence ignorée. Plongez dans les strates du Codex pour déterrer les vérités occultées par la morale. Des pulsions freudiennes au nihilisme de Schopenhauer, confrontez-vous aux fondations de votre propre chaos."
