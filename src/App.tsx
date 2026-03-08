@@ -8,6 +8,7 @@ import Decryptage from './pages/Decryptage';
 import CharacterDetail from "./pages/CharacterDetail";
 import Codex from './pages/Codex';
 import Diagnostic from './pages/Diagnostic';
+import Scrolltotop from "./components/utils/Scrolltotop";
 
 export default function App() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -60,6 +61,7 @@ export default function App() {
       <div className="cursor-ring" ref={cursorRingRef} />
 
       <BrowserRouter>
+        <Scrolltotop />
         <Header />
         <main>
           <Routes>
