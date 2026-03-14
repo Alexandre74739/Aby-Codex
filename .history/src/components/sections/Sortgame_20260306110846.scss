@@ -1,0 +1,123 @@
+@import '../../styles/variables';
+
+.diagnostic-engine {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: $space-16 $container-pad;
+
+    .engine-header {
+        text-align: center;
+        margin-bottom: $space-12;
+        .engine-title {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            color: $white;
+            text-transform: uppercase;
+            span { color: $violet; }
+        }
+        .engine-desc { color: $phantom; font-size: $text-sm; margin-top: $space-4; }
+    }
+
+    .engine-core {
+        background: rgba($surface, 0.3);
+        border: 1px solid rgba($border, 0.5);
+        padding: $space-8;
+        position: relative;
+
+        .scanner-track {
+            margin-bottom: $space-12;
+            .scanner-progress {
+                height: 1px;
+                background: $acid;
+                box-shadow: 0 0 10px $acid;
+                transition: width 0.3s ease;
+            }
+            .scanner-text {
+                font-family: $font-mono;
+                font-size: 9px;
+                color: $acid;
+                margin-top: 4px;
+                text-align: right;
+            }
+        }
+
+        .display-module {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .word-glitch {
+                font-family: $font-title;
+                font-size: $text-5xl;
+                color: $white;
+                text-align: center;
+                animation: fade-in 0.4s ease;
+                margin-bottom: $space-8;
+            }
+
+            .feedback-module {
+                height: 80px;
+                .status-msg {
+                    text-align: center;
+                    animation: fade-in-up 0.3s ease;
+                    .code { font-family: $font-mono; font-size: $text-xs; font-weight: bold; }
+                    p { font-size: $text-sm; color: $mist; margin-top: 4px; }
+                    &.pos { .code { color: $acid; } }
+                    &.neg { .code { color: $blood; } }
+                }
+            }
+        }
+
+        .control-module {
+            display: flex;
+            gap: $space-4;
+            margin-top: $space-8;
+
+            .ctrl-btn {
+                flex: 1;
+                padding: $space-6;
+                background: none;
+                border: 1px solid rgba($violet, 0.3);
+                cursor: pointer;
+                transition: all 0.2s;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .btn-label { font-family: $font-title; font-size: $text-lg; color: $white; }
+                .btn-sub { font-family: $font-mono; font-size: 9px; color: $phantom; margin-top: 4px; }
+
+                &:hover {
+                    background: rgba($violet, 0.1);
+                    border-color: $violet;
+                    .btn-label { color: $violet-glow; }
+                }
+
+                &:active { transform: scale(0.95); }
+            }
+        }
+
+        .summary-module {
+            text-align: center;
+            padding: $space-8 0;
+            .final-hex {
+                font-family: $font-title;
+                margin-bottom: $space-4;
+                .score-val { font-size: $text-7xl; color: $acid; }
+                .score-max { font-size: $text-2xl; color: $phantom; }
+            }
+            .verdict { color: $mist; font-family: $font-mono; margin-bottom: $space-8; }
+            .reboot-btn {
+                background: none;
+                border: 1px solid $violet;
+                color: $violet;
+                padding: $space-4 $space-10;
+                font-family: $font-mono;
+                cursor: pointer;
+                &:hover { background: $violet; color: $white; }
+            }
+        }
+    }
+}

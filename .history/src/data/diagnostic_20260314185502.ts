@@ -10,7 +10,7 @@ export const diagnosticQuestions = [
         profile: "abyssal",
       },
       {
-        text: "Chercher ce qu'elle dit de vous : une vérité que vous évitez.",
+        text: "Chercher ce qu'elle dit de vous — une vérité que vous évitez.",
         profile: "ombre",
       },
       {
@@ -18,7 +18,7 @@ export const diagnosticQuestions = [
         profile: "deterministe",
       },
       {
-        text: "L'accepter sans chercher de sens, elle est là, c'est tout.",
+        text: "L'accepter sans chercher de sens — elle est, c'est tout.",
         profile: "existentialiste",
       },
     ],
@@ -28,7 +28,7 @@ export const diagnosticQuestions = [
     text: "Ce qui vous attire dans les figures de monstres ou de villains, c'est...",
     options: [
       {
-        text: "Leur rapport à la douleur et comment ils la transforment en puissance.",
+        text: "Leur rapport à la douleur — ils la transforment en puissance.",
         profile: "abyssal",
       },
       {
@@ -36,11 +36,11 @@ export const diagnosticQuestions = [
         profile: "ombre",
       },
       {
-        text: "Leur logique implacable qui leur permet d'agir selon leurs propres lois.",
+        text: "Leur logique implacable — ils agissent selon leurs propres lois.",
         profile: "deterministe",
       },
       {
-        text: "Leur liberté absolue : ils ont renoncé aux règles des autres.",
+        text: "Leur liberté absolue — ils ont renoncé aux règles des autres.",
         profile: "existentialiste",
       },
     ],
@@ -54,7 +54,7 @@ export const diagnosticQuestions = [
         profile: "abyssal",
       },
       {
-        text: "Observer plus que vous ne participez, vous préférez comprendre.",
+        text: "Observer plus que vous ne participez — vous préférez comprendre.",
         profile: "ombre",
       },
       {
@@ -94,19 +94,19 @@ export const diagnosticQuestions = [
     text: "Le mot qui décrit le mieux votre rapport au passé :",
     options: [
       {
-        text: "Hantise : il revient toujours sous une autre forme.",
+        text: "Hantise — il revient toujours sous une autre forme.",
         profile: "abyssal",
       },
       {
-        text: "Matière : une archive à décrypter pour se comprendre.",
+        text: "Matière — une archive à décrypter pour se comprendre.",
         profile: "ombre",
       },
       {
-        text: "Donnée : il explique le présent mais ne le détermine pas.",
+        text: "Donnée — il explique le présent mais ne le détermine pas.",
         profile: "deterministe",
       },
       {
-        text: "Illusion : il n'existe plus, seul l'instant compte.",
+        text: "Illusion — il n'existe plus, seul l'instant compte.",
         profile: "existentialiste",
       },
     ],
@@ -116,19 +116,19 @@ export const diagnosticQuestions = [
     text: "Si vous pouviez tout recommencer, vous garderiez...",
     options: [
       {
-        text: "Vos cicatrices puisqu'elles sont la seule preuve que vous avez vraiment vécu.",
+        text: "Vos cicatrices — elles sont la seule preuve que vous avez vraiment vécu.",
         profile: "abyssal",
       },
       {
-        text: "Vos zones d'ombre, elles sont la partie la plus honnête de vous.",
+        text: "Vos zones d'ombre — elles sont la partie la plus honnête de vous.",
         profile: "ombre",
       },
       {
-        text: "Vos erreurs, elles sont les données qui ont affiné votre logique.",
+        text: "Vos erreurs — elles sont les données qui ont affiné votre logique.",
         profile: "deterministe",
       },
       {
-        text: "Rien car recommencer c'est s'inventer entièrement.",
+        text: "Rien — recommencer c'est s'inventer entièrement.",
         profile: "existentialiste",
       },
     ],
@@ -140,7 +140,7 @@ export const diagnosticResults = {
     sub: "FREUDISME RADICAL",
     title: "L'Analyste Abyssal",
     philosophy: "Sigmund Freud : La psychanalyse",
-    desc: "Vous percevez le monde à travers le filtre de l'inconscient. Vos émotions ne sont jamais superficielles, elles pointent toujours vers quelque chose d'enfoui. Vous portez les blessures du passé non comme des fardeaux, mais comme des clefs. Freud vous dirait que vous êtes déjà à mi-chemin : vous savez que ce qui vous hante est en vous. Reste à le nommer.",
+    desc: "Vous percevez le monde à travers le filtre de l'inconscient. Vos émotions ne sont jamais superficielles — elles pointent toujours vers quelque chose d'enfoui. Vous portez les blessures du passé non comme des fardeaux, mais comme des clefs. Freud vous dirait que vous êtes déjà à mi-chemin : vous savez que ce qui vous hante est en vous. Reste à le nommer.",
     traits: [
       "Hypersensibilité émotionnelle",
       "Mémoire affective forte",
@@ -150,8 +150,8 @@ export const diagnosticResults = {
   ombre: {
     sub: "JUNGISME OBSCUR",
     title: "L'Explorateur d'Ombres",
-    philosophy: "C.G. Jung : La psychologie analytique",
-    desc: "Vous observez plus que vous ne réagissez. Là où les autres fuient leur noirceur, vous la regardez en face, non par masochisme, mais par curiosité. Jung appelait cela l'individuation : le processus de devenir pleinement soi en intégrant sa propre Ombre. Vous êtes quelqu'un qui sait que le monstre et le héros partagent la même origine.",
+    philosophy: "C.G. Jung — La psychologie analytique",
+    desc: "Vous observez plus que vous ne réagissez. Là où les autres fuient leur noirceur, vous la regardez en face — non par masochisme, mais par curiosité. Jung appelait cela l'individuation : le processus de devenir pleinement soi en intégrant sa propre Ombre. Vous êtes quelqu'un qui sait que le monstre et le héros partagent la même origine.",
     traits: [
       "Distance analytique",
       "Fascination pour le symbolique",
@@ -161,8 +161,8 @@ export const diagnosticResults = {
   deterministe: {
     sub: "BEHAVIORISME CLINIQUE",
     title: "Le Déterministe Froid",
-    philosophy: "B.F. Skinner : Le comportementalisme",
-    desc: "Vous faites confiance à la logique plus qu'à l'intuition. Pour vous, comprendre un système c'est pouvoir le maîtriser, y compris le système humain. Vous n'êtes pas insensible, vous êtes méthodique. Là où les autres se noient dans leurs émotions, vous cherchez le schéma. Votre horreur est celle de la perte de contrôle, pas de la mort.",
+    philosophy: "B.F. Skinner — Le comportementalisme",
+    desc: "Vous faites confiance à la logique plus qu'à l'intuition. Pour vous, comprendre un système c'est pouvoir le maîtriser — y compris le système humain. Vous n'êtes pas insensible, vous êtes méthodique. Là où les autres se noient dans leurs émotions, vous cherchez le schéma. Votre horreur est celle de la perte de contrôle — pas de la mort.",
     traits: [
       "Pensée analytique",
       "Besoin de maîtrise",
@@ -172,8 +172,8 @@ export const diagnosticResults = {
   existentialiste: {
     sub: "NIHILISME LUCIDE",
     title: "L'Existentialiste du Vide",
-    philosophy: "Jean-Paul Sartre : L'existentialisme",
-    desc: "Vous avez compris que le sens ne se trouve pas, il se fabrique. Cette liberté absolue est votre force et votre solitude. Sartre disait que l'existence précède l'essence : vous n'êtes pas né avec une nature, vous vous construisez par vos choix. L'horreur qui vous touche le plus n'est pas la mort, c'est la vie vécue par défaut, sans jamais se choisir.",
+    philosophy: "Jean-Paul Sartre — L'existentialisme",
+    desc: "Vous avez compris que le sens ne se trouve pas — il se fabrique. Cette liberté absolue est votre force et votre solitude. Sartre disait que l'existence précède l'essence : vous n'êtes pas né avec une nature, vous vous construisez par vos choix. L'horreur qui vous touche le plus n'est pas la mort — c'est la vie vécue par défaut, sans jamais se choisir.",
     traits: [
       "Indépendance radicale",
       "Inconfort face aux conventions",

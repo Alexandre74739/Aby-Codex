@@ -1,0 +1,121 @@
+@import '../../styles/variables';
+
+.sort-game {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: $space-12;
+    display: flex;
+    flex-direction: column;
+    gap: $space-10;
+
+    .game-header {
+        text-align: center;
+        .game-title {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            margin: $space-4 0;
+            span { color: $violet; }
+        }
+        .game-intro { color: $fog; font-size: $text-sm; }
+    }
+
+    .game-dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+        
+        .stat-box {
+            display: flex;
+            justify-content: space-between;
+            font-family: $font-mono;
+            font-size: $text-xs;
+            .value { color: $acid; font-weight: bold; }
+        }
+
+        .progress-bar {
+            height: 2px;
+            background: rgba($white, 0.1);
+            .progress-fill {
+                height: 100%;
+                background: $violet;
+                box-shadow: 0 0 10px $violet;
+                transition: width 0.4s ease;
+            }
+        }
+    }
+
+    .game-body {
+        display: flex;
+        flex-direction: column;
+        gap: $space-8;
+        align-items: center;
+
+        .feedback-slot {
+            height: 60px;
+            text-align: center;
+            .message {
+                font-size: $text-sm;
+                padding: $space-2;
+                animation: fade-in 0.3s ease;
+                &.is-valid { color: $acid; }
+                &.is-error { color: $blood; }
+            }
+        }
+
+        .drag-container {
+            .draggable-card {
+                padding: $space-4 $space-10;
+                background: $surface;
+                border: 1px solid $border;
+                font-family: $font-title;
+                font-size: $text-xl;
+                cursor: grab;
+                &:active { cursor: grabbing; }
+                &.dragging { opacity: 0.3; }
+            }
+        }
+
+        .drop-container {
+            display: flex;
+            width: 100%;
+            gap: $space-4;
+
+            .zone {
+                flex: 1;
+                height: 120px;
+                border: 1px dashed $border;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+                font-family: $font-mono;
+                color: $phantom;
+                font-size: $text-xs;
+
+                &:hover {
+                    border-color: $violet;
+                    background: rgba($violet, 0.05);
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .game-end {
+        text-align: center;
+        padding: $space-10;
+        background: rgba($surface, 0.5);
+        border: 1px solid $violet;
+        
+        .btn-reset {
+            margin-top: $space-6;
+            background: $violet;
+            color: $white;
+            border: none;
+            padding: $space-3 $space-6;
+            font-family: $font-mono;
+            cursor: pointer;
+            &:hover { filter: brightness(1.2); }
+        }
+    }
+}

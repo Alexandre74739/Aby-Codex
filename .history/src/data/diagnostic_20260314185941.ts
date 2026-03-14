@@ -18,7 +18,7 @@ export const diagnosticQuestions = [
         profile: "deterministe",
       },
       {
-        text: "L'accepter sans chercher de sens, elle est là, c'est tout.",
+        text: "L'accepter sans chercher de sens, elle est, c'est tout.",
         profile: "existentialiste",
       },
     ],

@@ -1,0 +1,249 @@
+@import '../../styles/variables';
+@import '../../styles/animations';
+
+.game-manifesto {
+    padding: $space-24 0;
+    background-color: $void;
+    position: relative;
+    overflow: hidden;
+
+    .game-container {
+        max-width: $bp-3xl;
+        margin: 0 auto;
+        padding: 0 $container-pad;
+
+        .game-top {
+            text-align: center;
+
+            .top-title {
+                font-family: $font-title;
+                font-size: $text-3xl;
+                color: $white;
+                margin-bottom: $space-8;
+                line-height: 1.1;
+
+                span {
+                    color: transparent;
+                    -webkit-text-stroke: 1px $violet;
+                }
+            }
+
+            .top-description {
+                font-family: $font-body;
+                font-size: $text-lg;
+                color: $fog;
+                line-height: 1.8;
+                margin-bottom: $space-4;
+            }
+        }
+
+        .game-viewport {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            gap: $space-8;
+
+            @include lg {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .game-nav-list {
+                display: flex;
+                flex-direction: column;
+                gap: $space-4;
+                flex: 1;
+                width: 100%;
+
+                @include lg {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+                .game-nav-item {
+                    background-color: $surface;
+                    border: 1px solid $border;
+                    padding: $space-6;
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    transition: all $duration-base $ease-spring;
+                    position: relative;
+                    overflow: hidden;
+
+                    @include lg {
+                        flex: 1;
+                        min-width: 200px;
+                    }
+
+                    @include sm {
+                        min-width: 100%;
+                    }
+
+                    .nav-content {
+                        .concept-name {
+                            display: block;
+                            margin-bottom: $space-2;
+                            font-family: $font-title;
+                            font-size: $text-lg;
+                            color: $mist;
+                            transition: color $duration-base;
+                        }
+
+                        .concept-author {
+                            font-family: $font-mono;
+                            font-size: $text-sm;
+                            color: $phantom;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgba($surface, 0.4);
+                        border-color: rgba($violet, 0.3);
+                        transform: translateX($space-2);
+
+                        @include lg {
+                            transform: translateY(-$space-1);
+                        }
+
+                        .concept-name {
+                            color: $white;
+                        }
+                    }
+
+                    &.is-active {
+                        background-color: rgba($violet, 0.08);
+                        border-color: $violet-dim;
+                        box-shadow: inset 4px 0 0 $violet;
+
+                        @include lg {
+                            box-shadow: inset 0 -4px 0 $violet;
+                        }
+
+                        .concept-name {
+                            color: $white;
+                        }
+
+                        .concept-author {
+                            color: $acid;
+                        }
+
+                        .nav-indicator {
+                            height: 100%;
+
+                            @include lg {
+                                width: 100%;
+                                height: $space-1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .game-display-panel {
+                flex: 2;
+                width: 100%;
+                background-color: $surface;
+                border: 1px solid rgba($violet, 0.6);
+                padding: $space-16;
+                min-height: $bp-xs;
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(10px);
+                background-color: rgba($violet, 0.08);
+
+                @include sm {
+                    padding: $space-8;
+                    min-height: $bp-xs;
+                }
+
+                .content-wrap {
+                    animation: fade-in $duration-slow $ease-out;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    .content-header {
+                        margin-bottom: $space-12;
+
+                        @include sm {
+                            margin-bottom: $space-6;
+                        }
+
+                        .content-label {
+                            display: block;
+                            font-family: $font-mono;
+                            font-size: $text-sm;
+                            color: $acid;
+                            text-transform: uppercase;
+                            letter-spacing: $tracking-widest;
+                            margin-bottom: $space-4;
+                            animation: flicker-hard 0.8s ease-in-out infinite alternate;
+                        }
+
+                        .content-title {
+                            font-family: $font-title;
+                            font-size: $text-3xl;
+                            color: $white;
+                            line-height: 1;
+
+                            @include sm {
+                                font-size: $text-2xl;
+                            }
+                        }
+                    }
+
+                    .content-body {
+                        font-family: $font-body;
+                        font-size: $text-lg;
+                        line-height: $leading-loose;
+                        color: $mist;
+                        margin-bottom: $space-8;
+                        flex-grow: 1;
+                        max-width: 90%;
+
+                        @include sm {
+                            font-size: $text-md;
+                            max-width: 100%;
+                        }
+                    }
+
+                    .content-footer {
+                        .content-quote {
+                            font-family: $font-mono;
+                            font-size: $text-sm;
+                            color: $violet-glow;
+                            padding: $space-6;
+                            background: rgba($void, 0.4);
+                            border-left: 2px solid $violet;
+                            font-style: italic;
+                            line-height: $leading-normal;
+
+                            @include sm {
+                                padding: $space-4;
+                                font-size: $text-xs;
+                            }
+                        }
+                    }
+                }
+
+                .content-placeholder {
+                    margin: auto;
+                    font-family: $font-mono;
+                    color: $phantom;
+                    text-transform: uppercase;
+                    letter-spacing: $tracking-widest;
+                    font-size: $text-sm;
+                    text-align: center;
+
+                    .blink {
+                        animation: blink 1s infinite;
+                        color: $acid;
+                    }
+                }
+            }
+        }
+    }
+}

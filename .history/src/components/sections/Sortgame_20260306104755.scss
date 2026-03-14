@@ -1,0 +1,98 @@
+@import '../../styles/variables';
+
+.sort-game {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: $space-12;
+    font-family: $font-body;
+
+    .game-header {
+        text-align: center;
+        margin-bottom: $space-16;
+        .game-title {
+            font-family: $font-title;
+            font-size: $text-4xl;
+            color: $white;
+            margin: $space-4 0;
+            span { color: $violet; text-shadow: $glow-text-violet; }
+        }
+        .game-intro {
+            color: $fog;
+            line-height: $leading-relaxed;
+            max-width: 600px;
+            margin: 0 auto;
+            .instruction { color: $acid; font-family: $font-mono; font-size: $text-xs; margin-top: $space-4; }
+        }
+    }
+
+    .game-ui {
+        .progress-zone {
+            margin-bottom: $space-12;
+            .stats { font-family: $font-mono; font-size: $text-xs; color: $phantom; margin-bottom: $space-2; }
+            .bar { height: 2px; background: rgba($white, 0.1); .fill { height: 100%; background: $acid; transition: width 0.5s; } }
+        }
+
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $space-10;
+
+            .feedback-panel {
+                height: 100px;
+                width: 100%;
+                .card-feedback {
+                    padding: $space-6;
+                    background: rgba($surface, 0.4);
+                    border-left: 4px solid $violet;
+                    animation: fade-in-up 0.3s ease;
+                    strong { display: block; font-family: $font-mono; font-size: $text-xs; margin-bottom: $space-2; }
+                    p { font-size: $text-sm; color: $mist; margin: 0; }
+                    &.valid { border-color: $acid; strong { color: $acid; } }
+                    &.invalid { border-color: $blood; strong { color: $blood; } }
+                }
+            }
+
+            .drag-item {
+                padding: $space-8 $space-16;
+                background: $abyss;
+                border: 1px solid $violet-dim;
+                color: $white;
+                font-family: $font-title;
+                font-size: $text-2xl;
+                cursor: grab;
+                box-shadow: $shadow-card;
+                &:active { cursor: grabbing; transform: scale(0.95); }
+            }
+
+            .drop-zones {
+                display: flex;
+                width: 100%;
+                gap: $space-6;
+                .zone {
+                    flex: 1;
+                    height: 150px;
+                    border: 1px dashed rgba($border, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: $font-title;
+                    letter-spacing: $tracking-widest;
+                    color: $phantom;
+                    transition: all 0.3s;
+                    &:hover { border-color: $violet; background: rgba($violet, 0.05); color: $white; }
+                }
+            }
+        }
+
+        .game-over {
+            text-align: center;
+            background: $surface;
+            padding: $space-16;
+            border: 1px solid $border;
+            h3 { font-family: $font-title; font-size: $text-3xl; }
+            .final-score { font-size: $text-6xl; font-family: $font-title; color: $acid; margin: $space-6 0; }
+            button { background: none; border: 1px solid $violet; color: $violet; padding: $space-4 $space-8; cursor: pointer; font-family: $font-mono; &:hover { background: $violet; color: $white; } }
+        }
+    }
+}

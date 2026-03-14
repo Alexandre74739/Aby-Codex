@@ -10,7 +10,7 @@ export const diagnosticQuestions = [
         profile: "abyssal",
       },
       {
-        text: "Chercher ce qu'elle dit de vous : une vérité que vous évitez.",
+        text: "Chercher ce qu'elle dit de vous — une vérité que vous évitez.",
         profile: "ombre",
       },
       {
@@ -18,7 +18,7 @@ export const diagnosticQuestions = [
         profile: "deterministe",
       },
       {
-        text: "L'accepter sans chercher de sens, elle est là, c'est tout.",
+        text: "L'accepter sans chercher de sens — elle est, c'est tout.",
         profile: "existentialiste",
       },
     ],
@@ -28,7 +28,7 @@ export const diagnosticQuestions = [
     text: "Ce qui vous attire dans les figures de monstres ou de villains, c'est...",
     options: [
       {
-        text: "Leur rapport à la douleur et comment ils la transforment en puissance.",
+        text: "Leur rapport à la douleur — ils la transforment en puissance.",
         profile: "abyssal",
       },
       {
@@ -36,11 +36,11 @@ export const diagnosticQuestions = [
         profile: "ombre",
       },
       {
-        text: "Leur logique implacable qui leur permet d'agir selon leurs propres lois.",
+        text: "Leur logique implacable — ils agissent selon leurs propres lois.",
         profile: "deterministe",
       },
       {
-        text: "Leur liberté absolue : ils ont renoncé aux règles des autres.",
+        text: "Leur liberté absolue — ils ont renoncé aux règles des autres.",
         profile: "existentialiste",
       },
     ],

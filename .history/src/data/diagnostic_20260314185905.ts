@@ -10,7 +10,7 @@ export const diagnosticQuestions = [
         profile: "abyssal",
       },
       {
-        text: "Chercher ce qu'elle dit de vous : une vérité que vous évitez.",
+        text: "Chercher ce qu'elle dit de vous — une vérité que vous évitez.",
         profile: "ombre",
       },
       {
@@ -18,7 +18,7 @@ export const diagnosticQuestions = [
         profile: "deterministe",
       },
       {
-        text: "L'accepter sans chercher de sens, elle est là, c'est tout.",
+        text: "L'accepter sans chercher de sens — elle est, c'est tout.",
         profile: "existentialiste",
       },
     ],
@@ -40,7 +40,7 @@ export const diagnosticQuestions = [
         profile: "deterministe",
       },
       {
-        text: "Leur liberté absolue : ils ont renoncé aux règles des autres.",
+        text: "Leur liberté absolue  ils ont renoncé aux règles des autres.",
         profile: "existentialiste",
       },
     ],
